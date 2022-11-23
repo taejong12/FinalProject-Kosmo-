@@ -2,8 +2,7 @@
 
 
 footer {
-    background-color:#2AC1BC;
-    height: 100px;
+    background: rgb(0, 0, 0);;
     font-size: 13px;
     color: #fff;
     display: flex;

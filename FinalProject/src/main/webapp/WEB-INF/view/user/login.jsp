@@ -7,7 +7,7 @@
 <body>
     <main>
         <div class="login_box">
-			<a href="/"><img src="/img/finallogo.png" alt="이미지" class="bm_img"></a>    
+			<a href="/"><img src="/img/finallogo.png" alt="이미지" class="logo_img"></a>    
             
             <form action="/login" method="post">
  
@@ -47,7 +47,7 @@
 				</div>
 			</div>
 			
-			<div class="join"><a href="/join" >회원 가입하러 가기</a></div>
+			<div class="join"><a href="/join" >회원가입하러 가기</a></div>
         </div>
     </main>
     
