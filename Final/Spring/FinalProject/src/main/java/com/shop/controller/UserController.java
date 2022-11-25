@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,6 +24,10 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private BCryptPasswordEncoder pwdEncoder;
+
+	
 
 	
 	@GetMapping("/myPage")
@@ -53,7 +58,8 @@ public class UserController {
 			model.addAttribute("errorMsg", errorMsg);
 			return "user/join";
 		}
-		
+		String encPwd = pwdEncoder.encode(join.getPassword());
+		join.setPassword(encPwd);
 		userService.join(join);
 		
 		return "redirect:/login";

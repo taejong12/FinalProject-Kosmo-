@@ -26,7 +26,23 @@
 		)
 	</insert>
 	
-	
-	
-	
+	<select id="login" resultType="UserDTO">
+	    SELECT 
+	        U.ID
+	        ,U.USERNAME
+	        ,U.PASSWORD
+	        ,U.EMAIL
+	        ,U.NICKNAME
+	        ,U.PHONE
+	        ,U.RATING
+	        ,U.ROLE
+	        ,P.POINT
+	    FROM 
+	        USERS U 
+	    LEFT JOIN 
+	        (SELECT USER_ID, SUM(POINT) POINT FROM USER_POINT GROUP BY USER_ID) P
+	    ON 
+	        U.ID = P.USER_ID
+	    WHERE U.USERNAME = #{username }    
+	</select>
 </mapper>
