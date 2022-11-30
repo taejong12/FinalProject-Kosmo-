@@ -26,8 +26,12 @@ public class UserDAOImp implements UserDAO {
 		Map<String, String> map = new HashMap<>();
 		map.put("value", value);
 		map.put("valueType", valueType);
-		
 		return sql.selectOne("user.overlapCheck", map);
+	}
+
+	@Override
+	public void modifyInfo(Map<String, Object> map) {
+		sql.update("user.modifyInfo", map);	
 	}
  
 }

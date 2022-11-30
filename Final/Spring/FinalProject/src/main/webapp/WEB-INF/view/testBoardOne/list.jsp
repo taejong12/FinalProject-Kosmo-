@@ -167,6 +167,240 @@
 	});
 	
 	
+	var chkAlAbv = new Array;
+	$(document).ready(function(){
+	
+		getAuthItemList($("input[name=chk_alAbv]:checked").val());
+
+		
+		
+		$("input[name=chk_alAbv]").change(function(){
+		
+				var chk = "";
+				chkAlAbv = [];
+			
+				$("input[name=chk_alAbv]:checked").each(function() {
+				
+					chkAlAbv.push($(this).val());
+			
+				});
+					
+				
+					getAuthItemList(chkAlAbv);
+				
+			
+			});
+		
+	});
+	
+	var chkAlAbv10 = new Array;
+	$(document).ready(function(){
+	
+		getAuthItemList($("input[name=chk_alAbv10]:checked").val());
+
+		
+		
+		$("input[name=chk_alAbv10]").change(function(){
+		
+				var chk = "";
+				chkAlAbv10 = [];
+			
+				$("input[name=chk_alAbv10]:checked").each(function() {
+				
+					chkAlAbv10.push($(this).val());
+			
+				});
+					
+				
+					getAuthItemList(chkAlAbv10);
+				
+			
+			});
+		
+	});
+	
+	var chkAlAbv20 = new Array;
+	$(document).ready(function(){
+	
+		getAuthItemList($("input[name=chk_alAbv20]:checked").val());
+
+		
+		
+		$("input[name=chk_alAbv20]").change(function(){
+		
+				var chk = "";
+				chkAlAbv20 = [];
+			
+				$("input[name=chk_alAbv20]:checked").each(function() {
+				
+					chkAlAbv20.push($(this).val());
+			
+				});
+					
+				
+					getAuthItemList(chkAlAbv20);
+				
+			
+			});
+		
+	});
+	
+	var chkAlAbv30 = new Array;
+	$(document).ready(function(){
+	
+		getAuthItemList($("input[name=chk_alAbv30]:checked").val());
+
+		
+		
+		$("input[name=chk_alAbv30]").change(function(){
+		
+				var chk = "";
+				chkAlAbv30 = [];
+			
+				$("input[name=chk_alAbv30]:checked").each(function() {
+				
+					chkAlAbv30.push($(this).val());
+			
+				});
+					
+				
+					getAuthItemList(chkAlAbv30);
+				
+			
+			});
+		
+	});
+	
+	var chkAlPrice0 = new Array;
+	$(document).ready(function(){
+	
+		getAuthItemList($("input[name=chk_alPrice0]:checked").val());
+
+		
+		
+		$("input[name=chk_alPrice0]").change(function(){
+		
+				var chk = "";
+				chkAlPrice0 = [];
+			
+				$("input[name=chk_alPrice0]:checked").each(function() {
+				
+					chkAlPrice0.push($(this).val());
+			
+				});
+					
+				
+					getAuthItemList(chkAlPrice0);
+				
+			
+			});
+		
+	});
+	
+	var chkAlPrice1 = new Array;
+	$(document).ready(function(){
+	
+		getAuthItemList($("input[name=chk_alPrice1]:checked").val());
+
+		
+		
+		$("input[name=chk_alPrice1]").change(function(){
+		
+				var chk = "";
+				chkAlPrice1 = [];
+			
+				$("input[name=chk_alPrice1]:checked").each(function() {
+				
+					chkAlPrice1.push($(this).val());
+			
+				});
+					
+				
+					getAuthItemList(chkAlPrice1);
+				
+			
+			});
+		
+	});
+	
+	var chkAlPrice3 = new Array;
+	$(document).ready(function(){
+	
+		getAuthItemList($("input[name=chk_alPrice3]:checked").val());
+
+		
+		
+		$("input[name=chk_alPrice3]").change(function(){
+		
+				var chk = "";
+				chkAlPrice3 = [];
+			
+				$("input[name=chk_alPrice3]:checked").each(function() {
+				
+					chkAlPrice3.push($(this).val());
+			
+				});
+					
+				
+					getAuthItemList(chkAlPrice3);
+				
+			
+			});
+		
+	});
+	
+	var chkAlPrice5 = new Array;
+	$(document).ready(function(){
+	
+		getAuthItemList($("input[name=chk_alPrice5]:checked").val());
+
+		
+		
+		$("input[name=chk_alPrice5]").change(function(){
+		
+				var chk = "";
+				chkAlPrice5 = [];
+			
+				$("input[name=chk_alPrice5]:checked").each(function() {
+				
+					chkAlPrice5.push($(this).val());
+			
+				});
+					
+				
+					getAuthItemList(chkAlPrice5);
+				
+			
+			});
+		
+	});
+	
+	var chkAlPrice10 = new Array;
+	$(document).ready(function(){
+	
+		getAuthItemList($("input[name=chk_alPrice10]:checked").val());
+
+		
+		
+		$("input[name=chk_alPrice10]").change(function(){
+		
+				var chk = "";
+				chkAlPrice10 = [];
+			
+				$("input[name=chk_alPrice10]:checked").each(function() {
+				
+					chkAlPrice10.push($(this).val());
+			
+				});
+					
+				
+					getAuthItemList(chkAlPrice10);
+				
+			
+			});
+		
+	});
+	
 	function getAuthItemList(){
 		
 	$.ajax({
@@ -177,7 +411,17 @@
 					chkFlSinmat : chkFlSinmat,
 					chkFlSsunmat : chkFlSsunmat,
 					chkFlBody : chkFlBody,
-					chkFlTansan : chkFlTansan},
+					chkFlTansan : chkFlTansan,
+					chkAlAbv : chkAlAbv,
+					chkAlAbv10 : chkAlAbv10,
+					chkAlAbv20 : chkAlAbv20,
+					chkAlAbv30 : chkAlAbv30,
+					chkAlPrice0 : chkAlPrice0,
+					chkAlPrice1 : chkAlPrice1,
+					chkAlPrice3 : chkAlPrice3,
+					chkAlPrice5 : chkAlPrice5,
+					chkAlPrice10 : chkAlPrice10
+			},
 			traditional : true,
 			async: true,
 			success : function(data){
@@ -188,7 +432,7 @@
 				html += '<td>'+data[key].alNum+'</td>';
 				html += '<td>'+'<img src='+data[key].alOpic+'>'+'</td>';
 				html += '<td>'+data[key].kiName+'</td>';
-				html += '<td>'+data[key].alName+'</td>';
+				html += '<td><a href="/store/viewOne?id='+data[key].alNum+'">'+data[key].alName+'</a></td>';
 				html += '<td>'+data[key].alAbv+'</td>';
 				html += '<td>'+data[key].alPrice+'</td>';
 				html += '<td>'+data[key].alStock+'</td>';
@@ -300,21 +544,20 @@
 	<div>
 		<h4>도수</h4>
 		<input type="checkbox" name="chk_alAbv" value=0> 0~10%
-		<input type="checkbox" name="chk_alAbv" value=10> 10~20%
-		<input type="checkbox" name="chk_alAbv" value=20> 20~30%
-		<input type="checkbox" name="chk_alAbv" value=30> 30%이상
+		<input type="checkbox" name="chk_alAbv10" value=11> 11~20%
+		<input type="checkbox" name="chk_alAbv20" value=21> 21~30%
+		<input type="checkbox" name="chk_alAbv30" value=30> 30%이상
 	</div>
 	
-<!-- 
 	<div>
 		<h4>가격</h4>
-		<input type="checkbox" name="chk_alPrice" value=0 >~1만원  
-		<input type="checkbox" name="chk_alPrice" value=10000 >1만원~3만원  
-		<input type="checkbox" name="chk_alPrice" value=30000 >3만원~5만원  
-		<input type="checkbox" name="chk_alPrice" value=50000 >5만원~10만원  
-		<input type="checkbox" name="chk_alPrice" value=100000 >10만원이상  
+		<input type="checkbox" name="chk_alPrice0" value=0 >~1만원  
+		<input type="checkbox" name="chk_alPrice1" value=10001 >1만원~3만원  
+		<input type="checkbox" name="chk_alPrice3" value=30001 >3만원~5만원  
+		<input type="checkbox" name="chk_alPrice5" value=50001 >5만원~10만원  
+		<input type="checkbox" name="chk_alPrice10" value=100001 >10만원이상  
 	</div>
- -->
+
 
 <hr/>
 <table width="950" cellpadding="0" cellspacing="0" border="1">

@@ -65,7 +65,10 @@ public class UserController {
 		return "redirect:/login";
 	}
 	
-	
+	@GetMapping("/user/myInfo")
+	public String myInfo() {
+		return "user/myInfo";
+	}
 	
 	
 	@ResponseBody

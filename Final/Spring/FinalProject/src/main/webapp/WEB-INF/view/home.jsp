@@ -32,16 +32,16 @@
                 <div class="box">
                     <ul class="category">
                     
-                                <li>
+                                <li value="일반증류주">
 									<div>
 										<div class="img_box">
                                            <img src="/img/jeungryu.png" alt="이미지">
 										</div>
                                     </div>
-                                    <div class="name">일반증류주</div>
+                                    <div class="name" >일반증류주</div>
                                 </li>
                     
-                                <li>
+                                <li value="증류식소주">
 									<div>
 										<div class="img_box">
                                            <img src="/img/soju.png" alt="이미지">
@@ -50,7 +50,7 @@
                                     <div class="name">증류식소주</div>
                                 </li>
                     
-                                <li>
+                                <li  value="청주">
 									<div>
 										<div class="img_box">
                                            <img src="/img/chungju.jpg" alt="이미지">
@@ -59,7 +59,7 @@
                                     <div class="name">청주</div>
                                 </li>
                     
-                                <li>
+                                <li value="탁주">
 									<div>
 										<div class="img_box">
                                            <img src="/img/tacju.jpg" alt="이미지">
@@ -69,7 +69,7 @@
                                 </li>
                                 
                     
-                                <li>
+                                <li value="생탁주">
 									<div>
 										<div class="img_box">
                                            <img src="/img/saengtacju.jpg" alt="이미지">
@@ -78,7 +78,7 @@
                                     <div class="name">생탁주</div>
                                 </li>
                                 
-                                <li>
+                                <li value="과실주">
 									<div>
 										<div class="img_box">
                                            <img src="/img/fruit.jpg" alt="이미지">
@@ -87,7 +87,7 @@
                                     <div class="name">과실주</div>
                                 </li>
                     
-                                <li>
+                                <li value="리큐르">
 									<div>
 										<div class="img_box">
                                            <img src="/img/liquor.jpg" alt="이미지">
@@ -97,7 +97,7 @@
                                 </li>
                                 
                     
-                                <li>
+                                <li value="약주">
 									<div>
 										<div class="img_box">
                                            <img src="/img/yackju.jpg" alt="이미지">
@@ -106,7 +106,7 @@
                                     <div class="name">약주</div>
                                 </li>
                     
-                                <li>
+                                <li value="브랜디">
 									<div>
 										<div class="img_box">
                                            <img src="/img/blandy.jpg" alt="이미지">
@@ -114,7 +114,7 @@
                                     </div>
                                     <div class="name">브랜디</div>
                                 </li>    
-                                <li>
+                                <li value="기타주류">
 									<div>
 										<div class="img_box">
                                            <img src="/img/etcju.jpg" alt="이미지">
@@ -139,17 +139,11 @@
  
 <script>
 	$(".category li").click(function(){
-		let address1 = $("#deleveryAddress1").val();
-		if(!address1) {
-			swal("배달 받으실 주소를 입력해 주세요");
-			return false;
-		}
-		
+		let value = $(this).attr("value");
 		const index = $(this).index();
 		
-		location.href = "/store/" + (100+index) + "/" +address1;
+		location.href = "/store?al_kind="+value;
 	})
- 
 </script>
  
  

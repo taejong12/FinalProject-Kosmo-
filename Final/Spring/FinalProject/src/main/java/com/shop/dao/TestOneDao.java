@@ -23,7 +23,10 @@ public interface TestOneDao {
 	
 	public int updateDao(Map<String, String> umap);
 	
-	public List<TestOneDto> getAuthItemList(String[] chkArray, String[] chkDanmat, String[] chkFlSinmat, String[] chkFlSsunmat, String[] chkFlBody, String[] chkFlTansan);
+	public List<TestOneDto> getAuthItemList(String[] chkArray, String[] chkDanmat, String[] chkFlSinmat, 
+			String[] chkFlSsunmat, String[] chkFlBody, String[] chkFlTansan, 
+			String[] chkAlAbv, String[] chkAlAbv10, String[] chkAlAbv20, String[] chkAlAbv30,
+			String[] chkAlPrice0, String[] chkAlPrice1, String[] chkAlPrice3, String[] chkAlPrice5, String[] chkAlPrice10);
 	
 	
 

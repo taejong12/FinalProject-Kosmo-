@@ -85,6 +85,68 @@
 						 #{item}
 					</foreach>
 			</if>
+			<if test="chkAlAbv != null">
+				AND a.al_abv between
+					<foreach collection="chkAlAbv" item="item" open="(" close=")" separator=",">
+						  #{item}
+					</foreach>  
+                    and 10
+			</if>
+			<if test="chkAlAbv10 != null">
+				or a.al_abv between
+					<foreach collection="chkAlAbv10" item="item" open="(" close=")" separator=",">
+						  #{item}
+					</foreach>  
+                and 20
+			</if>
+			<if test="chkAlAbv20 != null">
+				or a.al_abv between
+					<foreach collection="chkAlAbv20" item="item" open="(" close=")" separator=",">
+						  #{item}
+					</foreach>  
+                and 30
+			</if>
+			<if test="chkAlAbv30 != null">
+				or a.al_abv >=
+					<foreach collection="chkAlAbv30" item="item" open="(" close=")" separator=",">
+						  #{item}
+					</foreach>  
+			</if>
+			<if test="chkAlPrice0 != null">
+				and a.al_price between
+					<foreach collection="chkAlPrice0" item="item" open="(" close=")" separator=",">
+						  #{item}
+					</foreach>  
+					and 10000
+			</if>
+			<if test="chkAlPrice1 != null">
+				and a.al_price between
+					<foreach collection="chkAlPrice1" item="item" open="(" close=")" separator=",">
+						  #{item}
+					</foreach>  
+					and 30000
+			</if>
+			<if test="chkAlPrice3 != null">
+				and a.al_price between
+					<foreach collection="chkAlPrice3" item="item" open="(" close=")" separator=",">
+						  #{item}
+					</foreach>  
+					and 50000
+			</if>
+			<if test="chkAlPrice5 != null">
+				and a.al_price between
+					<foreach collection="chkAlPrice5" item="item" open="(" close=")" separator=",">
+						  #{item}
+					</foreach>  
+					and 100000
+			</if>
+			<if test="chkAlPrice10 != null">
+				and a.al_price >=
+					<foreach collection="chkAlPrice10" item="item" open="(" close=")" separator=",">
+						  #{item}
+					</foreach>  
+			</if>
+			
 			
 		</where>
 					

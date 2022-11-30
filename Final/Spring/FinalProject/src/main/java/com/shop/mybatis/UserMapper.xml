@@ -45,4 +45,27 @@
 	        U.ID = P.USER_ID
 	    WHERE U.USERNAME = #{username }    
 	</select>
+	
+	<update id="modifyInfo">
+	    UPDATE USERS SET
+	    
+	    <if test="valueType == 'password'">
+	        PASSWORD = #{value }
+	    </if>
+	    
+	    <if test="valueType == 'nickname'">
+	        NICKNAME = #{value }		
+	    </if>
+	    
+	    <if test="valueType == 'phone'">
+	        PHONE = #{value }		
+	    </if>
+	    
+	    <if test="valueType == 'email'">
+	        EMAIL = #{value }		
+	    </if>
+	    
+	    WHERE	USERNAME = #{username } 
+	</update>
+	
 </mapper>

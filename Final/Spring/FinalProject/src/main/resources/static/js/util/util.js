@@ -39,7 +39,7 @@ function nicknameCheck(nickname) {
  
  
  
-function lenthCheck(e, length) {
+function lengthCheck(e, length) {
 	if(e.value.length >= length) {
 		return false;
 	}
