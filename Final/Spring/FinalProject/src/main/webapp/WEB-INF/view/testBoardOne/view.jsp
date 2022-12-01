@@ -5,30 +5,54 @@
 <head>
 <meta charset="UTF-8">
 <title>view</title>
+
+<script type="text/javascript">
+	let form = $("#infoForm");
+	
+	$("#list_btn").on("click", function(e){
+		form.find("#bno").remove();
+		form.attr("action", "/store/search");
+		form.submit();
+	})
+	
+	
+	$("#modify_btn").on("click", function(e){
+		form.attr("action", "/store/updateOne");
+		form.submit();
+	})
+	
+</script>
 </head>
 <body>
-상세보기<br/>
+	<h2>상세보기</h2>
+
 	<hr>
-		게시판 번호: ${dto.boardNum}<br/>
-		주류사진: ${dt.alOpic }<br/>
+		주종이름: ${dto.kiName}<br/>
+		주류번호: ${dto.alNum}<br/>
+		주류사진: ${dto.alOpic }<br/>
 		상품명(주류이름): ${dto.alName}<br/>
-		상품설명: ${dto.itemDetail}<br/>
-		판매상태: ${dto.itemStatus}<br/>
+		도수:${dto.alAbv} %<br/>
 		가격: ${dto.alPrice}원<br/>
 		재고: ${dto.alStock}개<br/>
-		상품등록일: ${dto.itemDate}<br/>
-		주종이름:  ${dto.kiName}<br/>
-		도수:${dto.alAbv} %<br/>
-		용량: ${dto.alVolume}<br/>
-		재료:${dto.alJaeryo} <br/>
-		단맛:${dto.flDanmat} 
-		쓴맛:${dto.flSsunmat} 
-		신맛:${dto.flSinmat} 
+		단맛:${dto.flDanmat} <br/>
+		신맛:${dto.flSinmat} <br/>
+		쓴맛:${dto.flSsunmat} <br/>
+		농도:${dto.flBody}<br/>
 		탄산:${dto.flTansan} 
-		농도:${dto.flBody}
 	<hr>
+	
 <button type="button" onclick="location.href='../updateOne?id=${dto.id}';">수정하기</button>
 <br/>
+
+<form id="infoForm" action="/store/updateOne" method="get">
+	<input type="hidden" id="bno" name="bno" value='<c:out value="${dto.alNum}"/>'>
+</form>
+
+<div class="btn-wrap">
+	<a class="btn" id="list_btn">목록 페이지</a>
+	<a class="btn" id="modify_btn">수정하기</a>	
+</div>
+
 <p><a href="/store/search">목록보기</a></p>
 </body>
 </html>

@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <title>List</title>
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
 
 <script type="text/javascript">
@@ -430,12 +432,12 @@
 				for(key in data){
 				html += '<tr>';
 				html += '<td>'+data[key].alNum+'</td>';
-				html += '<td>'+'<img src='+data[key].alOpic+'>'+'</td>';
+				html += '<td><img src='+data[key].alOpic+'></td>';
 				html += '<td>'+data[key].kiName+'</td>';
 				html += '<td><a href="/store/viewOne?id='+data[key].alNum+'">'+data[key].alName+'</a></td>';
-				html += '<td>'+data[key].alAbv+'</td>';
-				html += '<td>'+data[key].alPrice+'</td>';
-				html += '<td>'+data[key].alStock+'</td>';
+				html += '<td>'+data[key].alAbv+'%</td>';
+				html += '<td>'+data[key].alPrice+'원</td>';
+				html += '<td>'+data[key].alStock+'개</td>';
 				html += '<td>'+data[key].flDanmat+'</td>';
 				html += '<td>'+data[key].flSinmat+'</td>';
 				html += '<td>'+data[key].flSsunmat+'</td>';
@@ -444,12 +446,34 @@
 				html += '</tr>';
 				}
 				
+				
 				$("#itemList").empty().append(html);
 				
 			}
 		})
 		
 	}
+
+	let moveForm = ${"#moveForm"};
+	
+	 $(".move").on("click", function(e){
+		 	
+		 	e.preventDefault();
+	        moveForm.find("input type='hidden' name='bno' value='")+$(this).attr("href")+"'>");
+	        moveForm.attr("action", "/store/search");
+	        moveForm.submit();   
+			 
+	    });
+	
+	 $(".pageInfo a").on("click", function(e){
+		 	
+		 	e.preventDefault();
+	        moveForm.find("input[name='pageNum']").val($(this).attr("href"));
+	        moveForm.attr("action", "/store/search");
+	        moveForm.submit();   
+			 
+	    });
+	 
 
 
 </script>
@@ -557,9 +581,15 @@
 		<input type="checkbox" name="chk_alPrice5" value=50001 >5만원~10만원  
 		<input type="checkbox" name="chk_alPrice10" value=100001 >10만원이상  
 	</div>
-
-
+	
+	
+	
 <hr/>
+
+<%@ include file="/WEB-INF/view/include/testOneSearch.jsp" %>
+	
+ 
+
 <table width="950" cellpadding="0" cellspacing="0" border="1">
 	<thead>
 		<tr>
@@ -577,9 +607,29 @@
 			<th>탄산</th>
 		</tr>
 	</thead>
-	<tbody id="itemList">
-	</tbody>
+	
+	
+	<c:choose>
+		<c:when test="${empty list}">
+			<tr>
+				<td colspan="12" align="center"><h2>등록된 게시물이 없습니다.</h2></td>
+			</tr>
+		</c:when>
+		<c:otherwise>
+			<tbody id="itemList">
+	
+			</tbody>
+		</c:otherwise>
+	</c:choose>
+	
 </table>
+
+	<!-- 
+	<tbody id="itemList">
+	
+	</tbody>
+	 -->
+	 
 
 <hr>
 
@@ -632,6 +682,9 @@
 	</c:choose>
 </table>
 <p><a href="/store/writeOne">작 성</a></p>
+
+
+
 
 </body>
 

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.shop.dao.TestOneDao;
 import com.shop.dto.TestOneDto;
 
+
 @Service
 public class TestOneServiceImpl implements TestOneService{
 
@@ -17,39 +18,39 @@ public class TestOneServiceImpl implements TestOneService{
 	
 	
 	@Override
-	public List<TestOneDto> list() {
-		return dao.listDao();
+	public List<TestOneDto> testOneList() {
+		return dao.testOneListDao();
 	}
 
 	@Override
-	public TestOneDto view(String alNum) {
+	public List<TestOneDto> testOneView(String alNum) {
 		
-		return dao.viewDao(alNum);
+		return dao.testOneViewDao(alNum);
 	}
-
-	@Override
-	public int write(Map<String, String> map) {
-		
-		return dao.writeDao(map);
-	}
-
-	@Override
-	public int delete(String alNum) {
-	
-		return dao.deleteDao(alNum);
-	}
-
-	@Override
-	public int count() {
-
-		return dao.postCount();
-	}
-
-	@Override
-	public int update(Map<String, String> umap) {
-		
-		return dao.updateDao(umap);
-	}
+//
+//	@Override
+//	public int write(Map<String, String> map) {
+//		
+//		return dao.writeDao(map);
+//	}
+//
+//	@Override
+//	public int delete(String alNum) {
+//	
+//		return dao.deleteDao(alNum);
+//	}
+//
+//	@Override
+//	public int postCount() {
+//
+//		return dao.postCount();
+//	}
+//
+//	@Override
+//	public int update(Map<String, String> umap) {
+//		
+//		return dao.updateDao(umap);
+//	}
 
 	@Override
 	public List<TestOneDto> getAuthItemList(String[] chkArray, String[] chkDanmat, String[] chkFlSinmat, 
@@ -65,6 +66,30 @@ public class TestOneServiceImpl implements TestOneService{
 	}
 	
 
+	@Override
+	public List<TestOneDto> testOneGetlistPaging(TestOneDto cri) {
+		
+		return dao.testOneGetlistPaging(cri);
+	}
+	
+	/* 게시물 총 갯수 */
+    @Override
+    public int getTotal() {
+        
+        return dao.getTotal();
+    }    
+	
+
+//	@Override
+//	public List<TestOneDto> getList(TestOneDto searchVO) {
+//		return  dao.getList(searchVO); 
+//	}
+//
+//	@Override
+//	public int getListCnt(TestOneDto searchVO) {
+//		return dao.getListCnt(searchVO);
+//	}
+	
 	
 	
 

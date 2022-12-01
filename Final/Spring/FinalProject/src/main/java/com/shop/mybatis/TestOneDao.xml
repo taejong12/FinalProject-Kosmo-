@@ -6,22 +6,22 @@
 
 
 <mapper namespace="com.shop.dao.TestOneDao">
-	<select id="listDao" resultType="com.shop.dto.TestOneDto">
+	<select id="testOneListDao" resultType="com.shop.dto.TestOneDto">
 		select k.*, a.al_opic, a.al_name, a.al_abv, a.al_price, a.al_stock, f.*
 		from al_kinds k join alcohols a on k.ki_num=a.ki_num
 		                join flavors f on a.al_num=f.al_num
 		order by a.al_num desc
 	</select>
 	
-	<select id="viewDao" resultType="com.shop.dto.TestOneDto">
-		select t.*, a.al_name, a.al_price, a.al_stock, a.al_opic, a.al_abv, a.al_volume, a.al_jaeryo, f.*
-		from test_board t join alcohols a on  t.al_num=a.al_num
-		    join al_kinds k on a.ki_num=k.ki_num
-		    join flavors f on a.al_num=f.al_num
-		where t.board_num=#{0}
+	<select id="testOneViewDao" resultType="com.shop.dto.TestOneDto">
+		select k.*, a.al_opic, a.al_name, a.al_abv, a.al_price, a.al_stock, f.*
+		from al_kinds k join alcohols a on k.ki_num=a.ki_num
+		                join flavors f on a.al_num=f.al_num
+		
 	</select>
 	
 
+	<!-- 
 	<insert id="writeDao" parameterType="java.util.HashMap">
 		insert into test_board (boardNum, alName, itemDetail, itemStatus, alPrice, alStock, itemDate, auth, authdanmat, authssunmat, authsinmat, authbody, authtansan, abv )
 		values (test_board_seq.nextval, #{alName}, #{itemDetail}, #{itemStatus}, #{alPrice}, #{alStock}, #{itemDate}, #{auth}, #{authdanmat}, #{authssunmat}, #{authsinmat}, #{authbody}, #{authtansan}, #{abv} )
@@ -29,12 +29,9 @@
 	
 	
 	<delete id="deleteDao">
-		delete from test_board where board_num = #{_boardNum}
+		delete from test_board where board_num = #{_alNum}
 	</delete>	
 	
-	<select id="postCount" resultType="_int">
-		select count(*) from test_board 
-	</select>
 	
 	
 	<update id="updateDao" parameterType="java.util.HashMap">
@@ -42,6 +39,13 @@
 		set alName=#{alName}, itemDetail=#{itemDetail}, itemStatus=#{itemStatus}, alPrice=#{alPrice}, alStock=#{alStock}, auth=#{auth}, authdanmat=#{authdanmat}, authssunmat=#{authssunmat}, authsinmat=#{authsinmat}, authbody=#{authbody}, authtansan=#{authtansan}, abv=#{abv}
 		where boardNum=#{boardNum}
 	</update>
+	
+	<select id="postCount" resultType="_int">
+		select count(*), k.*, a.al_opic, a.al_name, a.al_abv, a.al_price, a.al_stock, f.*
+		from al_kinds k join alcohols a on k.ki_num=a.ki_num
+		                join flavors f on a.al_num=f.al_num
+	</select>
+	 -->
 	
 	
 	<select id="getAuthItemList" resultType="com.shop.dto.TestOneDto">
@@ -146,14 +150,75 @@
 						  #{item}
 					</foreach>  
 			</if>
-			
-			
-		</where>
-					
-						
+		</where>				
 		ORDER BY a.al_num desc
 	</select>
 	
+	
+	<select id="testOneGetlistPaging" resultType="com.shop.dto.TestOneDto">
+		<![CDATA[
+			select k.*, a.al_opic, a.al_name, a.al_abv, a.al_price, a.al_stock, f.*
+			from al_kinds k join (select rownum as rn, al.* from alcohols al where rownum <=(#{pageNum}) * #{amount}) a on k.ki_num=a.ki_num
+		                join flavors f on a.al_num=f.al_num 
+			where rn > (#{pageNum}-1) * #{amount}
+			order by rn desc
+		]]>
+	</select>
+	
+	<!-- 게시물 총 개숫 -->
+    <select id="getTotal" resultType="int">
+    
+		select count(*)
+		from alcohols
+    
+    </select>
+	
+	<!-- 
+	<select id="testOneGetlistPaging" resultType="com.shop.dto.TestOneDto">
+		<![CDATA[
+			select k.*, a.al_opic, a.al_name, a.al_abv, a.al_price, a.al_stock, f.*
+			from al_kinds k join alcohols a on k.ki_num=a.ki_num
+		                join flavors f on a.al_num=f.al_num 
+				where a.al_name in (select al_name
+								    from alcohols 
+								    where rownum <=10 
+		]]>
+			<if test="keyword != null">
+								    and al_name like '%'||#{keyword}||'%'
+			</if>
+		<![CDATA[
+								    )
+				order by a.al_num desc
+		]]>
+	</select>
+	 -->
+	
+	<!-- 
+	<select id="getList" parameterType="com.shop.dto.TestOneDto" resultType="com.shop.dto.TestOneDto">
+		<![CDATA[
+			select k.*, a.al_opic, a.al_name, a.al_abv, a.al_price, a.al_stock, f.*
+			from al_kinds k join alcohols a on k.ki_num=a.ki_num
+		                join flavors f on a.al_num=f.al_num 
+			where rownum <= (#{firstIndex}-1) * #{recordCountPerPage}
+			
+		]]>
+		
+		<include refid="boardtWhere"/>
+		
+		<![CDATA[			
+			order by a.al_num desc
+		]]>	
+		
+	</select>
+		
+	<select id="getListCnt" parameterType="com.shop.dto.TestOneDto" resultType="java.lang.Integer">
+		select k.*, a.al_opic, a.al_name, a.al_abv, a.al_price, a.al_stock, f.*
+			from al_kinds k join alcohols a on k.ki_num=a.ki_num
+		                join flavors f on a.al_num=f.al_num 
+		<include refid="boardtWhere"/>	
+	</select>
+	 -->
+ 
 
 	
 	

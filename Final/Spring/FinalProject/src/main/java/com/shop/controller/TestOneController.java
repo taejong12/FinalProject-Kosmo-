@@ -1,5 +1,6 @@
 package com.shop.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -12,8 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.shop.dto.TestOneDto;
 import com.shop.service.TestOneService;
@@ -22,16 +26,16 @@ import com.shop.service.TestOneService;
 public class TestOneController {
 		
 	@Autowired
-	TestOneService service;
+	private TestOneService service;
 	
-	@RequestMapping("/store/search")
-	public String userlist(Model model) {
-		model.addAttribute("list" , service.list());
-//		System.out.println(service.list());
-		int total=service.count();
-		System.out.println("total count:" + total);
-		return "/testBoardOne/list";
-	}
+//	@RequestMapping("/store/search")
+//	public String userlist(Model model) {
+//		model.addAttribute("list" , service.list());
+////		System.out.println(service.list());
+////		int total=service.postCount();
+////		System.out.println("total count:" + total);
+//		return "/testBoardOne/list";
+//	}
 	
 	
 	@RequestMapping("/store/writeOne")
@@ -70,29 +74,32 @@ public class TestOneController {
 		map.put("flBody", flBody);
 		map.put("flTansan", flTansan);
 		
-		int res = service.write(map);
-		System.out.println("writer:" + res);
+//		int res = service.write(map);
+//		System.out.println("writer:" + res);
 		return "redirect:/store/search"; //redirect를 사용하면 주소 맵핑 방향으로 간다 
 	}
 	
 	@RequestMapping("/store/viewOne")
-	public String detailView(HttpServletRequest req, Model model) {
-		String uId = req.getParameter("boardNum");
-		model.addAttribute("dto",service.view(uId));
+	public String detailView(HttpServletRequest req, Model model, TestOneDto cri) {
+		String uId = req.getParameter("alNum");
+		model.addAttribute("dto",service.testOneView(uId));
+		
+		model.addAttribute("cri",cri);
+		
 		return "/testBoardOne/view"; // view 파일 jsp 쪽으로 간다
 	}
 	
 	@RequestMapping("/store/deleteOne")
 	public String delete(HttpServletRequest req, Model model) {
-		int res = service.delete(req.getParameter("boardNum"));
-		System.out.println("delete:" + res);
+//		int res = service.delete(req.getParameter("boardNum"));
+//		System.out.println("delete:" + res);
 		return "redirect:/store/search";
 	}
 	
 	@RequestMapping("/store/updateOne")
 	public String updateForm(HttpServletRequest req, Model model) {
-		String uId = req.getParameter("boardNum");
-		model.addAttribute("dto",service.view(uId));
+//		String uId = req.getParameter("boardNum");
+//		model.addAttribute("dto",service.view(uId));
 		return "/testBoardOne/updateForm";
 	}
 	
@@ -113,8 +120,8 @@ public class TestOneController {
 		umap.put("alPrice", alPrice);
 		umap.put("alStock", alStock);
 	
-		int res = service.update(umap);
-		System.out.println("update:" + res);
+//		int res = service.update(umap);
+//		System.out.println("update:" + res);
 		return "redirect:/store/search";
 	}
 	
@@ -124,36 +131,49 @@ public class TestOneController {
 			String[] chkFlSsunmat, String[] chkFlBody, String[] chkFlTansan, 
 			String[] chkAlAbv, String[] chkAlAbv10, String[] chkAlAbv20, String[] chkAlAbv30,
 			String[] chkAlPrice0, String[] chkAlPrice1, String[] chkAlPrice3, String[] chkAlPrice5, String[] chkAlPrice10) {
-		System.out.println(Arrays.toString(chkArray));
-		System.out.println(Arrays.toString(chkDanmat));
-		System.out.println(Arrays.toString(chkFlSinmat));
-		System.out.println(Arrays.toString(chkFlSsunmat));
-		System.out.println(Arrays.toString(chkFlBody));
-		System.out.println(Arrays.toString(chkFlTansan));
-		System.out.println(Arrays.toString(chkAlAbv));
-		System.out.println(Arrays.toString(chkAlAbv10));
-		System.out.println(Arrays.toString(chkAlAbv20));
-		System.out.println(Arrays.toString(chkAlAbv30));
-		System.out.println(Arrays.toString(chkAlPrice0));
-		System.out.println(Arrays.toString(chkAlPrice1));
-		System.out.println(Arrays.toString(chkAlPrice3));
-		System.out.println(Arrays.toString(chkAlPrice5));
-		System.out.println(Arrays.toString(chkAlPrice10));
+//		System.out.println(Arrays.toString(chkArray));
+//		System.out.println(Arrays.toString(chkDanmat));
+//		System.out.println(Arrays.toString(chkFlSinmat));
+//		System.out.println(Arrays.toString(chkFlSsunmat));
+//		System.out.println(Arrays.toString(chkFlBody));
+//		System.out.println(Arrays.toString(chkFlTansan));
+//		System.out.println(Arrays.toString(chkAlAbv));
+//		System.out.println(Arrays.toString(chkAlAbv10));
+//		System.out.println(Arrays.toString(chkAlAbv20));
+//		System.out.println(Arrays.toString(chkAlAbv30));
+//		System.out.println(Arrays.toString(chkAlPrice0));
+//		System.out.println(Arrays.toString(chkAlPrice1));
+//		System.out.println(Arrays.toString(chkAlPrice3));
+//		System.out.println(Arrays.toString(chkAlPrice5));
+//		System.out.println(Arrays.toString(chkAlPrice10));
 		
 		List<TestOneDto> result = service.getAuthItemList(chkArray, chkDanmat, chkFlSinmat, 
 				chkFlSsunmat, chkFlBody, chkFlTansan, 
 				chkAlAbv, chkAlAbv10, chkAlAbv20, chkAlAbv30,
 				chkAlPrice0, chkAlPrice1, chkAlPrice3, chkAlPrice5, chkAlPrice10);
-		
-		
 		return result;
 	}
 
 	
+	@RequestMapping("/store/search")
+	public String testOneGetlistPaging(Model model, TestOneDto cri) {
+		System.out.println(cri);
+		model.addAttribute("list", service.testOneGetlistPaging(cri));
+		
+		int total = service.getTotal();
+        
+        TestOneDto pageMake = new TestOneDto(cri, total);
+        
+        model.addAttribute("pageMaker", pageMake);
+		
+        
+		return "/testBoardOne/list";
+	}
 	
 	
 	
 	
+
 	
 	
 	
