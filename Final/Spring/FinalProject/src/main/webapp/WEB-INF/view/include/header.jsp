@@ -35,11 +35,11 @@ header .admin_page_btn a {
 				로그인중			
 			</c:if>
 
-			<!-- 임시 -->
+			<!-- 관리자페이지 링크 -->
 			<c:if test="${SPRING_SECURITY_CONTEXT.authentication.principal.user.role == 'ROLE_ADMIN' }"> 
 			<div class="admin_page_btn">
 				<div>
-					<a href="/admin/main">사장님 페이지</a>
+					<a href="/admin/main">관리자 페이지</a>
 				</div>
 			</div>
 			</c:if>

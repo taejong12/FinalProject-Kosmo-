@@ -45,8 +45,10 @@
  
  
 </style>
+
 </head>
 <body>
+
 <div class="pageInfo_wrap" >
         <div class="pageInfo_area">
  			<ul id="pageInfo" class="pageInfo">
@@ -58,7 +60,7 @@
  			
  				 <!-- 각 번호 페이지 버튼 -->
                 <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-                    <li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }"><a href="/store/search?pageNum=${num}&amount=10">${num}</a></li>
+                    <li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":" " }"><a href="/store/search?pageNum=${num}&amount=10">${num}</a></li>
                 </c:forEach>
 
                 
@@ -73,14 +75,33 @@
 
 	<form id="moveForm" method="get">
 	 	<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
-        <input type="hidden" name="amount" value="${pageMaker.cri.amount}">  
+        <input type="hidden" name="amount" value="${pageMaker.cri.amount}">
 	</form>
 
+
+<!--
+<script>
+	let moveForm = ${"#moveForm"};
 	
+	$(".move").on("click", function(e){
+		 	
+		 e.preventDefault();
+	       moveForm.find("input type='hidden' name='bno' value='")+$(this).attr("href")+"'>");
+	       moveForm.attr("action", "/store/search");
+	       moveForm.submit();   
+			 
+	   });
+	
+	$(".pageInfo a").on("click", function(e){
+		 	
+		 e.preventDefault();
+	       moveForm.find("input[name='pageNum']").val($(this).attr("href"));
+	       moveForm.attr("action", "/store/search");
+	       moveForm.submit();   
+			 
+	   });
 
-
-
-
-
+</script>
+-->
 </body>
 </html>

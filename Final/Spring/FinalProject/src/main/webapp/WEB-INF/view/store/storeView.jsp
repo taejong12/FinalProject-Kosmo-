@@ -31,7 +31,7 @@
 					<c:forEach items="${dto }" var="dto">
 				<tr>
 					<td>${dto.alNum }</td>
-					<td><a href="view?alNum=${dto.alNum}">${dto.alName }</a></td>
+					<td><a href="alView?alNum=${dto.alNum}">${dto.alName }</a></td>
 					<td><img src="${dto.alOpic}"/></td>
 					<td>${dto.kiName }</td>
 					<td>${dto.alPrice }</td>
