@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.shop.dao.OrderDAO">
+ 	
+ 	<!-- 결제 목록 -->
+	<select id="getOrderList" resultType="com.shop.dto.OrderDTO">	
+		select a.al_opic, a.al_name, o.OR_TOTALAMOUNT, o.OR_PAYSTATUS, o.OR_TOTALPRICE, o.OR_PAYDATE, o.OR_RoadAddress
+		from alcohols a join orders o on o.AL_NUM = a.AL_NUM     
+		            join users u on u.username=o.username
+		where o.username = #{userName}
+	</select>
+	
+	<!-- 결제완료시 저장 -->
+	<insert id="orderInsertDao">
+		insert into orders(or_num, or_totalamount, or_paystatus, or_totalprice, or_paydate, or_postnum, or_roadaddress, or_detailaddress, al_num, username)
+		values (or_seq.nextval, #{orTotalAmount}, #{orPayStatus}, #{orTotalPrice}, #{orPayDate}, #{orPostNum}, #{orRoadAddress}, #{orDetailAddress}, #{alNum}, #{userName})
+	</insert>
+
+</mapper>
