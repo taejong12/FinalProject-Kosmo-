@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="user">
+ 
+	<select id="overlapCheck" resultType="int">
+		SELECT COUNT(*) FROM USERS WHERE ${valueType } = #{value }
+	</select>
+	
+	<insert id="join">
+		INSERT INTO USERS (
+			ID,
+			USERNAME,
+			PASSWORD,
+			EMAIL,
+			NICKNAME,
+			PHONE
+		) VALUES (
+			USER_ID_SEQ.NEXTVAL,
+			#{username },
+			#{password },
+			#{email },
+			#{nickname },
+			#{phone }
+		)
+	</insert>
+	
+	<select id="login" resultType="UserDTO">
+	    SELECT 
+	        U.ID
+	        ,U.USERNAME
+	        ,U.PASSWORD
+	        ,U.EMAIL
+	        ,U.NICKNAME
+	        ,U.PHONE
+	        ,U.RATING
+	        ,U.ROLE
+	    FROM 
+	        USERS U 
+	    WHERE U.USERNAME = #{username}    
+	</select>
+	
+	<select id="findId" resultType="String">
+	    SELECT	USERNAME
+	    FROM	USERS
+	    WHERE	EMAIL = #{email }
+	</select>
+	
+	<select id="emailCheck" resultType="String">
+	    SELECT	1 result 
+	    FROM 	DUAL 
+	    WHERE EXISTS(
+	        SELECT	1 
+	        FROM 	USERS 
+	        WHERE 	USERNAME = #{username } 
+	        AND 	EMAIL = #{email }
+	    ) 
+	</select>
+	 
+	 
+	<select id="phoneCheck" resultType="String">
+	    SELECT	1 result 
+	    FROM 	DUAL 
+	    WHERE EXISTS(
+	        SELECT	1 
+	        FROM 	USERS
+	        WHERE 	USERNAME = #{username } 
+	        AND 	PHONE = #{phone }
+	    )
+	</select>
+	
+	<update id="modifyInfo">
+	    UPDATE USERS SET
+	    
+	    <if test="valueType == 'password'">
+	        PASSWORD = #{value }
+	    </if>
+	    
+	    <if test="valueType == 'nickname'">
+	        NICKNAME = #{value }		
+	    </if>
+	    
+	    <if test="valueType == 'phone'">
+	        PHONE = #{value }		
+	    </if>
+	    
+	    <if test="valueType == 'email'">
+	        EMAIL = #{value }		
+	    </if>
+	    
+	    WHERE	USERNAME = #{username } 
+	</update>
+	
+	<delete id="out">
+		DELETE 
+		FROM   USERS
+		WHERE  USERNAME = #{username}
+	</delete>
+</mapper>

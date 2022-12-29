@@ -1,0 +1,306 @@
+#myform fieldset{
+    display: inline-block;
+    direction: rtl;
+    border:0;
+}
+#myform fieldset legend{
+    text-align: right;
+}
+
+#myform input[type=radio]{
+    display: none;
+}
+#myform label{
+    font-size: 3em;
+    color: transparent;
+    text-shadow: 0 0 0 #f0f0f0;
+}
+#myform label:hover{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+#myform label:hover ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+#myform input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+    
+}
+#myform{
+   position:relative;
+   text-align: center;
+   left: 30px;   
+}
+textarea{
+	border-radius:0px;
+}
+#reviewContents {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: solid 1.5px #D3D3D3;
+    font-size: 16px;
+    resize: none;
+}
+main {
+   width: 70%;
+   margin: 40px auto;
+   border: 1px solid #ddd;
+   padding-bottom: 40px;
+   background-color: #fff;
+}
+strong{
+   font-weight: 900;
+   
+}
+ 
+.login_box {
+   margin: 0px auto;
+   text-align: center;
+   background-clip: content-box;
+}
+ 
+.logo_img {
+   width: 20%;
+}
+
+.melo{
+   letter-spacing: 3px;
+   font-size: 35px;
+   float: center;
+}
+
+.login_box .input_aera {
+   margin: 1px auto;
+   width: 35%;
+}
+ 
+.login_box input {
+   margin: 3px auto;
+   width: 100%;
+   height: 40px;
+   padding: 0 2%;
+   border: 1px solid #ddd;
+   border-radius:0px;
+   box-sizing: border-box;
+}
+ 
+.login_box .login_btn,
+#login_btn  {
+	font-family: 'Hahmlet', serif;
+   background: black;
+   border-radius:0px;
+   width: 35%;
+   height: 50px;
+   color: #fff;
+   cursor: pointer;
+   font-size: 1.6rem;
+}
+
+.box{
+   display: center;
+}
+ 
+.login_box .box {
+   width: 80%;
+   margin: 10px auto 40px auto;
+}
+ 
+.login_box .box .continue_login {
+   
+   direction: rtl;
+}
+ 
+.login_box .box i {
+   font-size: 2rem;
+   color: #999999;
+}
+ 
+input[type="checkbox"] {
+   display: none;
+}
+input[type="checkbox"]:checked ~ i{
+   color: black;
+}
+
+.search{
+   font-size: 20px;
+}
+.logo_img{
+   text-align: center;
+}
+#oauth_login div {
+   width: 300px;
+   margin: 5px auto;
+   height: 55px;
+   box-shadow: 0px 2px 3px 0px rgb(0 0 0 / 25%);
+}
+
+ 
+#oauth_login div a {
+   display: block;
+   width: 100%;
+   height: 100%;
+}
+ 
+#oauth_login div:nth-child(1) a {
+   background: url("/img/kakao_login_btn.png") no-repeat center;
+   background-size: cover;   
+   
+}
+ 
+#oauth_login div:nth-child(2) a {
+   background: url("/img/naver_login_btn2.png") no-repeat center;
+   background-size: cover;   
+}
+ 
+#oauth_login div:nth-child(3) a {
+   background: url("/img/btn_google.png") no-repeat center;
+   background-size: cover;   
+}
+ 
+.join {
+   margin-top: 20px;
+}
+.join a {
+   color: black;
+   font-weight: bold;
+   font-size: 1.8rem;
+   margin-top: 20px;
+}
+ 
+@media ( max-width :1023px) {
+   main {
+      width: 90%;
+   }
+}
+ 
+@media ( max-width : 767px ) {
+   html {
+      font-size: 58%;
+   }
+   
+   main {
+      width: 99%;
+   }
+   
+   .login_box .input_aera {
+      width: 90%;
+   }
+   
+   .login_box .login_btn {
+      width: 90%;
+   }
+   
+   .login_box .box {
+      width: 90%;
+      margin: 10px auto;
+   }
+ 
+   #oauth_login {
+      display: flex;
+      width: 230px;
+      margin: 0 auto;
+   }
+   #oauth_login div {
+      width: 60px;
+      height: 60px;
+      
+      box-shadow: 0px 2px 3px 0px rgb(0 0 0 / 25%);
+   }
+ 
+   #oauth_login div:nth-child(1) a {
+      background: url("/img/btn_kakao_m.png") no-repeat center;
+      background-size: cover;
+   }
+   
+   #oauth_login div:nth-child(2) a {
+      background: url("/img/btn_naver_m.png") no-repeat center;
+      background-size: cover;      
+   }
+   
+   #oauth_login div:nth-child(3) a {
+      background: url("/img/btn_google_m.png") no-repeat center;
+      background-size: cover;
+   } 
+   
+}
+.login_box{
+      
+       padding:100px;
+   background-color: #fff;   
+}
+@media (max-width: 480px) {
+   html {
+      font-size: 58%;
+   }
+   
+}
+.pic{
+   text-align: center;
+   height:260px;
+}
+#pic2{
+   width:250px;
+   height:250px;
+}
+
+
+.stName{
+   position: relative;
+   right: 20px;
+}   
+#h2{   
+   
+   
+   display: inline-block;
+   text-align: center;
+   
+} 
+input{   
+   margin:0;
+   padding:10px;
+   line-height: 39px;
+   cursor: text;
+    opacity: 0.7;
+   background:1px solid aqua;   
+}
+a{   
+   position:relative;
+   bottom:15px;
+   margin:0;
+   padding:13px;
+   line-height: 39px;
+   cursor: text;
+    opacity: 0.7;
+   background:1px solid aqua;   
+}
+
+#writeInput{
+   text-align: center;
+   
+} 
+
+#ww{
+   background-color:#fff;
+}
+
+#tableMake{
+   display: center;
+   margin:0;
+}
+#myform{
+   margin-right: 170px;
+}
+#starSet{
+   margin-left: 40px;
+}
+/* body{
+   width: 1000px;
+   margin: auto;
+} */
+#nogihoon{
+   width:900px;
+   margin:auto;
+   background-color:#fff; 
+}

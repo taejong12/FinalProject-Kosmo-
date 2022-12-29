@@ -11,4 +11,19 @@
 		ON A.KI_NUM = B.KI_NUM 
 		WHERE B.KI_NAME = #{al_kind}
 	</select>
+	<select id="postCount" resultType="int">
+		select count(*) from ALCOHOLS
+	</select>
+	<select id="getListPaging" resultType="com.shop.dto.StoreDTO">
+    <![CDATA[
+        select A.*, B.KI_NAME		
+       	from(	
+       			select /*+INDEX_DESC(ALCOHOLS pk_board) */ rownum  as rn, A.*, B.KI_NAME  
+                from ALCOHOLS A 
+                join AL_KINDS B
+                ON A.KI_NUM = B.KI_NUM 
+                where rownum <= #{pageNum} * #{amount}) 
+                where rn > (#{pageNum} -1) * #{amount}
+    ]]>
+    </select>
 </mapper>

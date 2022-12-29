@@ -24,6 +24,10 @@ public class OrderDTO {
 	private String alOpic;//사진
 	private String alName;//주류이름
 	private String payMethod; // 결제방법
+	private String phone; // 고객핸드폰번호
+	private String email; // 고객이메일
+	
+	
 	
 	
 }

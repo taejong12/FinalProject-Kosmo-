@@ -2,7 +2,9 @@ package com.shop.controller;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,26 +47,42 @@ public class OrderController {
 	private OrderService orderService;
 
 	@RequestMapping("/orderForm")
-	public String orderForm(HttpServletRequest req, Model model ) {
+	public String orderForm(HttpServletRequest req, Model model) {
 
 		String orTotalAmount = req.getParameter("orTotalAmount");
-//		System.out.println(totalAmount);
+//		System.out.println(orTotalAmount);
 		String orTotalPrice = req.getParameter("orTotalPrice");
-//		System.out.println(totalPrice);
+//		System.out.println(orTotalPrice);
 		String alNum = req.getParameter("alNum");
-		System.out.println("test : "+alNum);
+//		System.out.println("test : "+alNum);
 		String alOpic = req.getParameter("alOpic");
 //		System.out.println(alOpic);
 		String alName = req.getParameter("alName");
 //		System.out.println(alName);
-
+		String userName = req.getParameter("userName");
+//		System.out.println(userName);
+//		Date today = new Date();
+//		String orPayDate = new SimpleDateFormat("yyyy년MM월dd일").format(today); 
+//		System.out.println(orPayDate);
 		
-		model.addAttribute("orTotalAmount",orTotalAmount);
-		model.addAttribute("orTotalPrice",orTotalPrice);
-		model.addAttribute("alNum", alNum);
-		model.addAttribute("alOpic",alOpic);
-		model.addAttribute("alName",alName);
-
+		model.addAttribute("list",orderService.orderPage(userName));
+		
+		Map<String, Object> orderList = new HashMap<>();
+		orderList.put("orTotalAmount",orTotalAmount);
+		orderList.put("orTotalPrice",orTotalPrice);
+		orderList.put("alNum",alNum);
+		orderList.put("alOpic",alOpic);
+		orderList.put("alName",alName);
+		
+		model.addAttribute("orderList", orderList);
+		
+//		model.addAttribute("orTotalAmount",orTotalAmount);
+//		model.addAttribute("orTotalPrice",orTotalPrice);
+//		model.addAttribute("alNum", alNum);
+//		model.addAttribute("alOpic",alOpic);
+//		model.addAttribute("alName",alName);
+//		model.addAttribute("orPayDate",orPayDate);
+		
 		return "/order/orderPage";
 	}
 	
@@ -139,27 +157,27 @@ public class OrderController {
 			IamportResponse<Payment> response = ic.paymentByImpUid(imp_uid);
 			
 			BigDecimal iamport_amount = response.getResponse().getAmount();
-			
 			 
 			} catch(Exception e) {
 				e.printStackTrace();
-				return new ResponseEntity(new CustomErrorType("서버처리 오류"), HttpStatus.INTERNAL_SERVER_ERROR);
+				return new ResponseEntity(new CustomErrorType("서버처리 오류"), HttpStatus.INTERNAL_SERVER_ERROR); 
 			}
 			
 			return new ResponseEntity<String>("결과반영 성공", responHeaders, HttpStatus.OK);
 		
 		}
-		
+	 
+		@ResponseBody
 		@RequestMapping("/order/insert")
-		public String write(HttpServletRequest req, Model model) {
+		public int write(HttpServletRequest req, Model model) {
 			String orTotalAmount = req.getParameter("orTotalAmount");
 			System.out.println(orTotalAmount);
 			String orPayStatus = req.getParameter("orPayStatus");
 			System.out.println(orPayStatus);
 			String orTotalPrice = req.getParameter("orTotalPrice");
 			System.out.println(orTotalPrice);
-			String orPayDate = req.getParameter("orPayDate");
-			System.out.println(orPayDate);
+//			String orPayDate = req.getParameter("orPayDate");
+//			System.out.println(orPayDate);
 			String orPostNum = req.getParameter("orPostNum");
 			System.out.println(orPostNum);
 			String orRoadAddress = req.getParameter("orRoadAddress");
@@ -175,7 +193,7 @@ public class OrderController {
 			map.put("orTotalAmount", orTotalAmount);
 			map.put("orPayStatus", orPayStatus);
 			map.put("orTotalPrice", orTotalPrice);
-			map.put("orPayDate", orPayDate);
+//			map.put("orPayDate", orPayDate);
 			map.put("orPostNum", orPostNum);
 			map.put("orRoadAddress", orRoadAddress);
 			map.put("orDetailAddress", orDetailAddress);
@@ -183,9 +201,14 @@ public class OrderController {
 			map.put("userName", userName);
 			
 			int res = orderService.orderInsert(map);
+			
+			return res;
+		}
+		
+		@RequestMapping("/order/orderSuccess")
+		public String form() {
 			return "/order/orderSuccess";
 		}
-	
 	
 		@GetMapping("/orderList/{username}")
 		public String cartPageGET(@PathVariable("username") String username, Model model) {

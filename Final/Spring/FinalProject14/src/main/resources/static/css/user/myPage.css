@@ -1,0 +1,96 @@
+.wrap{
+	margin-top: 8%;
+}
+.updateInfo_btn{
+	margin-top: 50px;
+	background: black;
+	border-radius: 0px;
+	border: 0px;
+	width: 65%;
+	height: 50px;
+	color: #fff;
+	cursor: pointer;
+	font-size: 1.2rem;
+}
+
+section.title {
+    width: 100%;
+}
+ 
+section.title h1 {
+	margin: 0 15%;
+}
+.title hr{
+	margin: 0 15% 3%;
+}
+ 
+/* 콘텐츠 */
+.nick{
+	padding-top: 2%;
+	font-size: 150%;
+	margin-left: 15%;
+}
+
+.mypage{
+	display: flex; 
+	justify-content: center; 
+	width: 60%; 
+	text-align: center;
+	max-width: 100%;
+	min-width: 100%;
+}
+ 
+.mypage a{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20 60;
+	
+} 
+
+ 
+.font{
+	font-size: 20px;
+} 
+.img1{
+	width: 200px;
+	height: 150px;
+}
+ 
+main hr{
+	margin: 1% 15%;
+} 
+@media (max-width:1023px) {
+	main .container .grid_box {
+		width: 80%;
+	}
+}
+@media  (max-width:767px) {
+	.wrap {
+		min-height: calc(100vh - 277px);
+	}
+	
+	main .container .grid_box {
+		width: 90%;
+		grid-template-rows: 50px 1fr 1fr;
+	}
+	
+	main .container .grid_box > div img {
+	    width: 100px;
+	} 
+}
+ 
+ 
+@media  (max-width:480px) {
+	.wrap {
+		min-height: calc(100vh - 274px);
+	}
+	main .container .grid_box {
+		width: 99%;
+	}
+	
+	main .container .grid_box > div img {
+	    width: 80px;
+	} 
+	
+}

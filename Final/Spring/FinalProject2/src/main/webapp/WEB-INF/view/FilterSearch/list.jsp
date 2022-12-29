@@ -247,9 +247,7 @@
 				for(key in data){
 				html += '<tr>';
 				html += '<td>'+data[key].alNum+'</td>';
-				
 				html += '<td><img src='+data[key].alOpic+' referrerpolicy="no-referrer"></td>';
-	
 				html += '<td>'+data[key].kiName+'</td>';
 				html += '<td><a href="/alView?alNum='+data[key].alNum+'">'+data[key].alName+'</a></td>';
 				html += '<td>'+data[key].alAbv+'%</td>';

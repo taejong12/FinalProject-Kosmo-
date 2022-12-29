@@ -1,0 +1,61 @@
+main {
+	width: 70%;
+    margin: 40px auto;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding-bottom: 40px;
+    background-color: darkgray;
+    margin-top: 3%;
+    font-family: 'Hahmlet', serif;
+}
+
+.login_box {
+	margin: 0px auto;
+	text-align: center;
+}
+
+.logo_img {
+	width: 20%;
+	margin-top: 1%;
+}
+
+#password{
+	font-weight: bolder;
+}
+
+.password1{
+	margin: 3px auto;
+	margin-left: 35px;
+	width: 30%;
+	height: 40px;
+	padding: 0 2%;
+	border: 1px solid #ddd;
+	border-radius:0px;
+	box-sizing: border-box;
+}
+
+.password2{
+	margin: 3px auto;
+	width: 30%;
+	height: 40px;
+	padding: 0 2%;
+	border: 1px solid #ddd;
+	border-radius:0px;
+	box-sizing: border-box;
+}
+
+.modify_btn{
+	margin: 3px auto;
+    width: 40%;
+    height: 40px;
+    padding: 0 2%;
+    border: 1px solid #ddd;
+    border-radius: 0px;
+    box-sizing: border-box;
+    background-color: black;
+    color: white;
+    font-family: 'Hahmlet', serif;
+}
+#password{
+	color: white;
+}

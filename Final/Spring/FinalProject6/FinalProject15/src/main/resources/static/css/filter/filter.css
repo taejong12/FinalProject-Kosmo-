@@ -1,0 +1,94 @@
+
+.login_box{
+   text-align: center;
+   /* background-color: #FF9614; */
+}
+
+.filter{
+	margin-top: 8%;
+	margin-left:1%;
+	margin-right:auto; 
+}
+.filter1{
+   	margin-left:auto; 
+    margin-right:auto;
+    background-color: white;
+    width: 70%;
+}
+
+th, td	{
+	border-bottom: 1px solid #ddd;
+}
+
+input{
+	margin-left: 3%;
+	background-color: lightgray;
+	border: none;
+	text-align: center;
+}
+
+.filter2{
+   margin-left:auto; 
+    margin-right:auto;
+}
+
+.category{   
+   text-align: center;
+   background-color: lightgray;
+}
+
+input[type="number"]:focus{outline: 3px solid black;}
+
+input[type="submit"] {
+   margin-top: 1%; width:80px;
+}
+
+input[type="submit"]:hover{
+   border: 2px solid black;
+   background: gray;
+   color: white;
+}
+
+.form-table-submit{
+   border-bottom: none;
+}
+
+
+
+
+ input[type="checkbox"] {
+        -webkit-appearance: none;
+        position: relative;
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        outline: none !important;
+        border: 1px solid #eeeeee;
+        border-radius: 2px;
+        background: darkgray;
+    }
+ 
+    input[type="checkbox"]::before {
+        content: "\2713";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        overflow: hidden;
+        transform: scale(0) translate(-50%, -50%);
+        line-height: 1;
+    }
+ 
+    input[type="checkbox"]:hover {
+        border-color: rgba(170, 170, 170, 0.5);
+    }
+ 
+    input[type="checkbox"]:checked {
+        background-color: black;
+        border-color: rgba(255, 255, 255, 0.3);
+        color: white;
+    }
+ 
+    input[type="checkbox"]:checked::before {
+        border-radius: 2px;
+        transform: scale(1) translate(-50%, -50%)
+    }

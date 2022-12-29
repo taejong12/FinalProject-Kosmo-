@@ -6,6 +6,8 @@ nav {
     bottom: 0;
     z-index: 1;
     background: #fff;
+    position: relative;
+    transform:translateY(-100%);
 }
 
 nav ul {

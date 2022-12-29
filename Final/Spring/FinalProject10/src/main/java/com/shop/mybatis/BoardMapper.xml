@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.shop.dao.NoticeDAO">
+   <select id="noticeListDao" resultType="com.shop.dto.NoticeDTO"> 
+      select * 
+      from NOTICES 
+      order by NO_NUM desc
+   </select>
+   
+   
+   <select id="noticeViewDao" resultType="com.shop.dto.NoticeDTO">
+      select * from NOTICES where NO_NUM= #{0}
+   </select>
+   
+   <insert id="noticeWriteDao" parameterType="java.util.HashMap">
+      insert into NOTICES (NO_NUM, NO_TITLE, NO_CONTENT, NO_WRITER)
+         values (NOTICES_SEQ.nextval, #{noTitle}, #{noContent}, #{noWriter})
+   </insert>
+   
+   <update id="noticeUpdateDao" parameterType="java.util.HashMap">
+        update NOTICES set NO_TITLE=#{noTitle}, NO_CONTENT=#{noContent}, NO_WRITER=#{noWriter}
+        where NO_NUM =#{noNum}
+      </update>
+      
+   <delete id="noticeDeleteDao">
+      delete from NOTICES where NO_NUM = #{_noNum}
+   </delete>
+   
+   <update id="noticeVisitCount">
+      update NOTICES set NO_COUNT = NO_COUNT + 1 where NO_NUM = #{noNum}
+   </update>
+   
+   <select id="noticePostCount" resultType="int">
+      select count(*) from NOTICES
+   </select>
+   
+   <select id="noticeGetListPaging" resultType="com.shop.dto.NoticeDTO">
+     <![CDATA[
+        
+        select * from(
+        
+                select rownum as rn, NOTICES.*
+                  
+                from NOTICES where rownum <= #{pageNum} * #{amount}) 
+                
+        where rn > (#{pageNum} -1) * #{amount}
+    
+    ]]>
+    </select>
+    
+       <!-- 상품 총 개수 -->
+   <select id="goodGetTotal" resultType="int">
+      
+      SELECT COUNT(*) FROM NOTICES 
+        
+        <if test="keyword != null">
+        
+           WHERE NO_TITLE LIKE '%' || #{keyword} || '%'
+        
+        </if>
+        
+   </select>     
+</mapper>

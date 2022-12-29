@@ -13,5 +13,5 @@ public interface OrderDAO {
 	public List<OrderDTO> getOrderList(String username);
 	public int orderPageDao(Map<String,String> map);
 	public int orderInsertDao(Map<String, String> map);
-	
+	public OrderDTO orderPage(String username);
 }

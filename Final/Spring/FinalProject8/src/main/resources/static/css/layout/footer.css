@@ -1,0 +1,36 @@
+/* -------------  푸터 ------------- */
+
+
+footer {
+    background:rgba(125, 125, 125, 0.1);;
+    
+    color: black;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    
+	
+	
+}
+
+footer .box {
+	width : 100%;
+	font-size: 16px;
+	
+}
+
+/* -------------  푸터 ------------- */
+
+
+@media (min-width:768px) and (max-width:1023px) {
+}
+@media  (max-width:767px) {
+	footer {
+		height: 100px; 
+	}
+	
+	footer .box {
+		width : 90%;
+	}
+
+}

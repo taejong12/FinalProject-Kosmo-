@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.shop.dao.OrderDAO">
+
+ 	<!-- 주문 상품 정보 -->
+	<select id="getGoodsInfo" resultType="com.shop.dto.OrderItemDTO">
+	
+		select al_num, al_name, al_price, al_opic
+		from alcohols where AL_NUM = #{alNum}	
+	
+	</select>
+ 	
+ 	<!-- 주문하기 페이지 -->
+ 	<select id="orderPage" resultType="com.shop.dto.OrderItemDTO">
+ 		select *
+ 		from users
+ 		where username = #{userName}
+ 	</select>	
+	
+	<!-- 결제완료시 테이블 저장 -->
+	<insert id="insertCartOrderHis" >
+		insert into orders(or_num,OR_PAYSTATUS,or_totalprice, or_postnum, or_roadaddress, or_detailaddress, username)
+		values (#{orNum},'결제완료', #{orTotalPrice}, #{orPostNum}, #{orRoadAddress}, #{orDetailAddress}, #{userName})
+	</insert>
+	
+	<!-- 결제 아이템 테이블 저장 -->
+	<insert id="insertCartOrderItemHis" >
+		insert into ORDERITEMS(OR_NUM, AL_NUM, CA_COUNT)
+		values (#{orNum}, #{alNum}, #{caCount})
+	</insert>
+	
+	<!-- 주문 재고 차감 -->
+	<update id="deductStock">
+	<![CDATA[
+		update ALCOHOLS set AL_Stock = AL_Stock - #{caCount} where AL_NUM = #{alNum}
+	]]>
+	</update>
+	
+	<!-- 구매한 장바구니 삭제 -->
+	<delete id="deleteOrderCart">
+	
+		delete from CART where id = #{userName} and al_num = #{alNum}
+	
+	</delete>
+	
+	   <!-- 결제내역 목록 -->
+   	<select id="getOrderList" resultType="com.shop.dto.OrderItemDTO">   
+     	 <![CDATA[
+	         SELECT B.*, A.AL_NUM,A.CA_COUNT ,C.AL_OPIC, C.AL_NAME, C.AL_PRICE
+	         FROM ORDERITEMS A, ORDERS B, ALCOHOLS C
+	         WHERE A.OR_NUM = B.OR_NUM
+	         AND A.AL_NUM = C.AL_NUM
+	         AND USERNAME = #{username}
+	         order by B.OR_PAYDATE DESC
+    	 ]]>
+    </select>
+	
+</mapper>

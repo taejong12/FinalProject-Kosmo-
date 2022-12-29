@@ -1,0 +1,184 @@
+@charset "UTF-8";
+
+.cart-menu{
+	margin-left: 50%;
+	margin-top: 5%;
+	
+}
+
+.content_totalCount_section{
+	margin-left: 15%;
+	margin-top: 3%;
+	font-size: 20px;
+}
+
+.all_check_input_div{
+	margin-left: 5%;
+}
+
+
+
+.cart_table{
+	margin-left: 4%;
+	font-size: 15px;
+	text-align: center;
+	width: 70%;
+	border-collapse: separate;
+  	border-spacing: 0 20px;
+  
+}
+
+.cart_table td{
+	border-bottom: 1px solid gray;
+}
+
+.cart_table th{
+	background:  #d3d3d3;
+	border: 1px solid white;
+}
+
+
+
+
+.cart_table img{
+	width: 50%;
+	height: 100%;
+	object-fit: scale-down;
+}
+	
+
+
+td:nth-child(1){
+	width: 5%;
+}
+
+td:nth-child(2){
+	width: 20%;
+}
+
+td:nth-child(3){
+	width: 10%;
+}
+
+td:nth-child(4){
+	width: 10%;
+}
+
+td:nth-child(5){
+	width: 20%;
+}
+
+td:nth-child(6){
+	width: 10%;
+}
+
+td:nth-child(7){
+	width: 5%;
+}
+
+
+
+
+
+
+.delete_btn{
+	border: none;
+}
+
+.delete_btn:hover{
+	border: 2px solid black;
+	background: gray;
+	color: white;
+}
+
+
+input[type="text"] {
+	width:30%;
+	text-align: center;
+}
+
+input[type="text"]:hover {
+	border: 2px solid black;
+	background: gray;
+	color: white;
+}
+
+
+.quantity_div button{
+	width: 15%;
+	border: none;
+}
+
+
+.td_width_4 div{
+	display: inline-block;
+}
+
+.quantity_modify_btn:hover{
+	border: 1px solid black;
+	background: gray;
+	color: white;
+}
+
+.quantity_div button:hover{
+	border: 2px solid black;
+	background: gray;
+	color: white;
+}
+
+
+
+input{
+	border: none;
+}
+
+input:focus {
+	border: 2px solid black;
+}
+
+
+
+.content_total_section{
+	margin-left: 15%; 
+}
+
+.list_table{
+	border-bottom: 1px solid black;
+}
+
+.order_btn{
+	border: none;
+	width: 50%;
+}
+
+.order_btn:hover{
+	border: 2px solid black;
+	background-color: #d3d3d3;
+	
+}
+
+.detailright {
+	width: 300px;
+	height: 350px;
+	text-align: center;
+	margin: auto;
+	float: right;
+	max-height: 100vh;
+	padding: 30px 10px;
+	border-radius: 10px;
+	box-shadow: rgb(0 0 0/ 16%) 0px 0px 3px 0px;
+	font-weight: bold;
+	color: rgb(112, 112, 112);
+	left: 80%;
+	position: fixed;
+	top: 30%;
+	z-index: 10;
+	font-size: 17px;
+	background-color: #f18372;
+	box-shadow: 1px 1px 3px 4px #dadce0;
+	color: white;
+	
+}
+
+
+

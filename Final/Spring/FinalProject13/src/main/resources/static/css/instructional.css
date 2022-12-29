@@ -1,0 +1,20 @@
+html{
+	background-color: ivory;
+}
+
+.img{ 
+	margin: 0px auto;
+	text-align: center;	
+}
+
+.logo_img {
+	width: 8%;
+	margin-left: 30px;
+}
+
+
+body {
+    padding: -100px 200px 50px 300px;
+    max-width: 100%;
+    background-color: ivory;
+ }

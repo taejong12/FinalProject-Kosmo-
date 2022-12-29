@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+.review {
+	margin: 96px 202px 1px 30px;
+}
+
+.board_zone_tit {
+	margin: 0 0 10px 0;
+	padding: 0 0 10px 0;
+	font-size: 16px;
+}
+
+.board_view_tit {
+	overflow: hidden;
+	padding: 15px 15px 15px 15px;
+	border-top: 1px solid #999999;
+	border-bottom: 1px solid #dbdbdb;
+	background: #f7f7f7;
+}
+
+.board_zone_view .board_view_info {
+	overflow: hidden;
+	padding: 10px 15px 10px 15px;
+	border-bottom: 1px solid #dbdbdb;
+}
+
+.board_view_info .view_info_day {
+	display: inline-block;
+	height: 10px;
+	margin: 0 0 0 7px;
+	font-size: 11px;
+	border-left: 1px solid #dbdbdb;
+	vertical-align: middle;
+}
+
+.board_view_info .view_info_day span {
+	position: relative;
+	display: block;
+	top: -3px;
+	padding: 0 0 0 10px;
+}
+
+.rating_star {
+	border-left: 1px solid #dbdbdb;
+	color: #ffc800;
+}
+
+.view_goods_select_item {
+	margin: 10px 0 3px 0;
+	padding: 20px 20px 30px 20px;
+	font-size: 0;
+	border-bottom: 1px dotted #dbdbdb;
+}
+
+.view_select_item_img img{
+	display: inline-block;
+	width: 120px;
+	 height: auto; 
+	vertical-align: top;
+}
+
+.view_select_item_info {
+	display: inline-block;
+	position: relative;
+	padding: 0px 0 0 18px;
+	font-size: 14px;
+}
+
+.view_select_item_info em {
+	/* display: block; */
+	font-weight: bold;
+}
+
+.board_view_content .seem_cont {
+	padding: 30px 15px 30px 15px;
+	line-height: 1.8;
+}
+
+.board_zone_sec {
+	margin: 15px 1px 1px 302px;
+}
+
+.board_view_tit h3 {
+	/* display: inline-block; */
+	/* color: #111111; */
+	font-size: 14px;
+}
+
+body {
+	font-size: 12px;
+	line-height: 1.5;
+	font-family: Malgun Gothic, "맑은 고딕", AppleGothic, Dotum, "돋움",
+		sans-serif;
+	color: #333;
+}

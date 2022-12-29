@@ -1,12 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
+<%@ include file="/WEB-INF/view/include/link.jsp" %>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<link rel="stylesheet" href="/css/layout/nav.css">
+<link rel="stylesheet" href="/css/home.css">
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 
@@ -40,22 +45,21 @@
 		const data = {
 				pg: pg_mid, // 
 				pay_method: payment_method, // 결제수단
-				merchant_uid: "ORD20221205-0000024", // 주문 번호 -- DTO에서 sysdate로 설정
-				name: "${alName}", // 상품명 
-				amount: "${orTotalPrice}", // 결제금액
-				buyer_email: "dbxowhdsla12@naver.com",//고객 이메일
+				merchant_uid: "${orNum}", // 주문 번호 -- DTO에서 sysdate로 설정
+				name: "${orderList.alName}", // 상품명 
+				amount: "${orderList.orTotalPrice}", // 결제금액
+				buyer_email: "${list.email}", //고객 이메일
 				buyer_name: "${SPRING_SECURITY_CONTEXT.authentication.principal.user.username}", // 고객이름
-				buyer_tel: "010-5060-7980" //고객 전화번호
-//				buyer_tel: "010-5060-7980",//고객 전화번호
-				
+				buyer_tel: "${list.phone}" //고객 전화번호
+//				buyer_tel: "010-5060-7980", //고객 전화번호
 		};
 		
-		
+		//console.log(data);
 			
 		IMP.request_pay(data, response =>{ //위 데이터를 바탕으로 결제 요청
-			 alert('callback!: '+JSON.stringify(response)); //콜백함수
+			 //alert('callback!: '+JSON.stringify(response)); //콜백함수
 			
-			console.log(JSON.stringify(response));
+			//console.log(JSON.stringify(response));
 			 
 			var formValue = $('#moveForm').serialize();
 
@@ -63,40 +67,37 @@
 				url:"/payment/callback_receive", //컨트롤러에 설정
 				method:"POST", //포스트 방식
 				headers:{"Content-Type":"application/json"}, //제이슨타입
-				data:JSON.stringify(response)
-						
-						 //스트링타입으로 리스폰스
+				data:JSON.stringify(response) //스트링타입으로 리스폰스
 			}).success(function(data){ //끝나면 함수 시작		
 
-				$(document).ready(function(){
-					form($("input[name=alNum]").val());				
-				});
-				
-				function form(){
-					$.ajax({
-						url :"/order/insert",
-						data:formValue,
-						success : function(data){
-							alert('성공'); 
-							
-						}
-					
-					})
-			
-		
-				}
-	
 				// alert("Please, Check your payment result page!!");
 				//console.log(data.process_result);
-				console.log(data);
+				//console.log(data);
 				//console.log(formValue+"dsadsa");
 				
 				if(data.process_result == '결제성공') {
-					alert('결제성공');
-					location.href='/order/insert';
+					$(document).ready(function(){
+						form($("input[name=alNum]").val());				
+					});
+					
+					function form(){
+						$.ajax({
+							url :"/order/insert",
+							data:formValue,
+							success : function(data){
+								alert('결제성공');
+								location.href='/order/orderSuccess';
+							}
+						
+						})
+				
+			
+					}
+					
+	
 					
 				} else {
-					// alert('결제취소');
+					alert('결제취소');
 					
 				}
 				
@@ -118,7 +119,7 @@
 </script>
 </head>
 <body>
-		
+<%@ include file="/WEB-INF/view/include/header.jsp" %>
 	<h1>주문하기</h1>
 	
 	<h2>상품정보</h2>
@@ -131,20 +132,20 @@
 		</tr>
 		
 		<c:choose>
-			<c:when test="${empty alName}">
+			<c:when test="${empty list}">
 				<tr>
 					<td colspan="4" align="center"><h2>등록된 게시물이 없습니다.</h2></td>
 				</tr>
 			</c:when>
 			<c:otherwise>
-			
-				<tr>
-					<td><img src="${alOpic}" referrerpolicy="no-referrer" /></td>
-					<td>${alName}</td>
-					<td>${orTotalAmount}</td>
-					<td>${orTotalPrice}</td>
-				</tr>
-				
+				<c:forEach items="orderList">
+					<tr>
+						<td><img src="${orderList.alOpic}" referrerpolicy="no-referrer" /></td>
+						<td>${orderList.alName}</td>
+						<td>${orderList.orTotalAmount}</td>
+						<td>${orderList.orTotalPrice}</td>
+					</tr>
+				</c:forEach>
 			</c:otherwise>
 		</c:choose>
 	</table>
@@ -159,21 +160,41 @@
 	<div >${SPRING_SECURITY_CONTEXT.authentication.principal.user.nickname }</div>
 	
 	<hr>
-	<h3>api로 설정해야함</h3>
 	<h3>배송지입력</h3>
 	
 		<form id="moveForm" method="post" >
-			<input type="hidden" name="orTotalAmount" value="${orTotalAmount}">
+			<input type="hidden" name="orTotalAmount" value="${orderList.orTotalAmount}">
 			<input type="hidden" name="orPayStatus" value="결제완료">
-			<input type="hidden" name="orTotalPrice" value="${orTotalPrice}">
-			<input type="hidden" name="orPayDate" value=20201208 >
-			<input type="number" name="orPostNum" value="00000"><br/>
-			<input type="text" name="orRoadAddress" value="도로명주소"><br/>
-			<input type="text" name="orDetailAddress" value="상세주소">
-			<input type="hidden" name="alNum" value="${alNum}">
+			<input type="hidden" name="orTotalPrice" value="${orderList.orTotalPrice}">
+			<!-- 
+			<input type="hidden" name="orPayDate" value="${orPayDate}">
+			 -->
+
+			<section class="address_search">
+                 <div id="search_box">
+                     <div>
+                         <input type="hidden" id="deleveryAddress1" placeholder="우편번호" value="${BMaddress.address1 }" name="orPostNum" readonly>
+                   		 <input type="text" value="${BMaddress.address2 }" 
+                         		id="deleveryAddress2" readonly placeholder="배달 받으실 주소를 입력해 주세요" name="orRoadAddress" onclick="modifyAddress()"><br>     
+                         <input type="text" id="deleveryAddress3" value="${BMaddress.address3 }"  name="orDetailAddress" placeholder="상세주소를 입력해주세요">                 		
+                     </div>
+ 
+                     <div class="search_btn">
+                         <label for="search_btn">
+                             <i class="fas fa-search"></i>
+                         </label>
+ 
+                         <input type="button" name="search" id="search_btn">
+ 
+                     </div>
+ 					<%@ include file="/WEB-INF/view/include/modifyAddress.jsp" %>
+                 </div>
+            </section>
+			
+			<input type="hidden" name="alNum" value="${orderList.alNum}">
 			<input type="hidden" name="userName" value="${SPRING_SECURITY_CONTEXT.authentication.principal.user.username}">
-			<input type="hidden" name="alOpic" value="${alOpic}">
-			<input type="hidden" name="alName" value="${alName}">
+			<input type="hidden" name="alOpic" value="${orderList.alOpic}">
+			<input type="hidden" name="alName" value="${orderList.alName}">
 		
 	
 			<h2>결제방법</h2>
@@ -192,10 +213,11 @@
 	<!-- 		<button type="button" onClick="payment('inicis', 'test', 'vbank')"> inicis test 무통장 입금</button> -->
 			
 		</form>
-			<button type="submit" onclick="location.href='/store/search';">목록가기</button>
 
 
+<%@ include file="/WEB-INF/view/include/nav.jsp" %>
 
+<%@ include file="/WEB-INF/view/include/footer.jsp" %>
 
 </body>
 </html>

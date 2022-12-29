@@ -17,10 +17,5 @@ public interface FilterSearchService {
 			String[] chkFlSsunmat, String[] chkFlBody, String[] chkFlTansan, 
 			String[] chkAlAbv, String[] chkAlPrice);
 	
-	
 
-	
- 
-    
-	
 }

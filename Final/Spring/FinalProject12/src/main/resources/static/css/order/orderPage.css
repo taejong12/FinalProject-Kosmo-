@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+.order-menu{
+
+	margin: 6% 0 3% 47%;
+	
+}
+
+.goods_subject_table{
+	width: 60%;
+	text-align: center;
+	font-size: 15px;
+  	margin-left: 20%;
+  	border-collapse: separate;
+  	border-spacing: 0 20px;
+}
+
+.goods_subject_table td{
+	border-bottom: 1px solid gray;
+}
+
+.goods_subject_table th{
+	background:  #d3d3d3;
+	border: 1px solid white;
+}
+
+.goods_subject_table img{
+	width: 50%;
+	height: 100%;
+	object-fit: scale-down;
+}
+
+.orderContain{
+	margin-top: 3%;
+	margin-left: 24%;
+	
+}
+
+.detailright {
+	width: 300px;
+	height: 350px;
+	text-align: center;
+	margin: auto;
+	float: right;
+	max-height: 100vh;
+	padding: 30px 10px;
+	border-radius: 10px;
+	box-shadow: rgb(0 0 0/ 16%) 0px 0px 3px 0px;
+	font-weight: bold;
+	color: rgb(112, 112, 112);
+	left: 80%;
+	position: fixed;
+	top: 30%;
+	z-index: 10;
+	font-size: 17px;
+	background-color: #f18372;
+	box-shadow: 1px 1px 3px 4px #dadce0;
+	color: white;
+	
+}
+
+.user-info input{
+	width: 35%;
+	text-align: center;
+}
+
+.user-info{
+	padding-bottom: 10%;
+	margin-left: 24%;
+}
+
+.user-info table th{
+	padding-right: 3%;
+	width: 15%;
+	text-align: right;
+}
+
+.user-info table{
+	border-collapse: separate;
+  	border-spacing: 0 20px;
+  	width: 70%;
+  	border: 1px solid gray;
+}
+
+.card-btn table{
+	width: 90%;
+	margin: 6% auto;
+	
+}
+
+
+.card-btn button{
+	border: none;
+	width: 90%;
+}
+
+.card-btn button:hover{
+	border: 2px solid black;
+	background: gray;
+	color: white;
+}
+
+.user-info input{
+	border: none;
+}
+
+.user-info input:hover{
+	border: 1px solid black;
+}
+
+.user-info input:focus{
+	border: 2px solid black;
+	
+	
+}
+
+

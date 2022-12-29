@@ -174,24 +174,37 @@ for(tanum in arrTaste){
         window.document.onselectstart = new Function("return false");
         window.document.ondragstart = new Function("return false");
         
+       function order(){
+    	   var form = document.form;
+    	   var orTotalAmount =form.orTotalAmount.value;
+    	   var orTotalPrice = form.orTotalPrice.value;
+    	   if(orTotalAmount <= 0){
+    		   alert("수량을 선택해주세요.")
+    	   }else if(orTotalPrice <= 0){
+    		   alert("가격이 0원입니다.")
+    	   }else{
+    		   form.submit();
+    	   }
+       }
 </script>
 
 <div>
 <div class="detailright" align="right">
 
-<form action="/orderForm" name="form" method="post" enctype="multipart/form-data" >
+<form action="/orderForm" name="form" method="post" enctype="multipart/form-data"  >
+	<input type="hidden" name="userName" value="${SPRING_SECURITY_CONTEXT.authentication.principal.user.username}" />
 	<input type="hidden" name="alOpic" value="${alDTO.alOpic}" />
 	<input type="hidden" name="alNum" value="${alDTO.alNum}" />
 	상품명:<input type=text name="alName" value="${alDTO.alName}" readonly></input><br/>
 	 <input type=hidden ondragstart='return false'  name="sell_price" value="${alDTO.alPrice}">
 	수량: <input type="text" name="orTotalAmount" id="amount" value="0" size="3" onkeydown="change(this);" onkeyup = "change(this);"><br/>
 	1개 추가하기 : <input type="button" value=" + " onclick="add();">
-	1개 줄이기<input type="button" value=" - " onclick="del();"><br/> 
+	1개 줄이기<input type="button" value=" - " onclick="del();"><br/>
 	<input type="hidden" name="sum" size="11" readonly>
 	총 금액 : <input type="number" id="my_sum" name="orTotalPrice" value="0" readonly/>원<br/>
 	<c:choose>
 		<c:when test="${not empty SPRING_SECURITY_CONTEXT.authentication.principal.user.username }">
-			<input type="submit" value="결제하기" /> 
+			<button type="button" onclick="order()">결제하기</button> 
 		</c:when>
 		<c:otherwise>
 			<button type="button" onclick="location.href='/login';" >로그인하기</button>

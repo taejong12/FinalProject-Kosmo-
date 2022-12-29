@@ -1,0 +1,156 @@
+body{
+	font-family: 'Hahmlet', serif;
+	
+}
+#box {
+
+	background-size: contain;
+	display: flex;
+	align-content: center;
+	justify-content: space-around
+}
+#snack{
+	margin-top: 5%;
+}
+
+
+
+.detailright {
+	width: 300px;
+	height: 350px;
+	text-align: start;
+	margin: auto;
+	float: right;
+	max-height: 100vh;
+	padding: 30px 10px;
+	border-radius: 10px;
+	box-shadow: rgb(0 0 0/ 16%) 0px 0px 3px 0px;
+	font-weight: bold;
+	left: 80%;
+	position: fixed;
+	top: 30%;
+	z-index: 10;
+	font-size: 17px;
+	background-color: darkgray;
+	box-shadow: 1px 1px 3px 4px #dadce0;
+	color: black;
+}
+#detailmain hr:first-child{
+margin: 2% 10%;
+	}
+
+#detail {
+	font-size: 15px;
+	margin: 0 10%;
+}
+
+.postbox {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0 10%;
+}
+
+.volumebtn {
+	background-color: black;
+	color: white;
+	width: 45px;
+	height: 38px;
+	text-align: center;
+	border: none;
+}
+.volumebtn:hover{
+	background-color: black;
+	color: white;
+	border: none;
+}
+.alname {
+	margin-top:10px;
+	width: 280px;
+	display: inline-block;
+	text-align: center;
+	font-size: 19px;
+}
+#my_sum{
+	width: 130px;
+	text-align: center;
+}
+#btn_cart1 {
+	margin-left: 0%;
+    margin-top: 3%;
+}
+
+.item_photo_info_sec {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #fff;
+	margin-top: 5%;
+}
+
+.item_info {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+	margin-top: 50px;
+}
+
+.iteminfo {
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+	flex-direction: column;
+	font-size: 14px;
+}
+
+#Chart{
+width: 550px; 
+height: 450px; 
+text-align:center;
+margin: 0 5%;
+
+}
+
+
+#snacktitle{
+margin-top: 50px;
+}
+
+#btn2{
+background-color: black;
+color: white;
+}
+
+.btnlogin{
+	margin-top:3%;
+	margin-left: 60%;
+	
+}
+.btn-warning{
+	background-color: black;
+	color: white;
+	border: none;
+}
+.btn-warning:hover{
+	background-color: black;
+	color: white;
+	border: none;
+}
+#review{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+
+.rating_star {
+	color: #ffc800;
+}
+
+#reviewtable{
+	width: 40%;
+	align-content: center;
+	border-collapse: separate;
+	border-spacing: 0 10px;
+}

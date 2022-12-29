@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.shop.dao.ReviewDAO">   
+   <insert id="ReviewWriteDAO">
+      insert into REVIEWS (RE_NUM, AL_NUM, AL_NAME, AL_OPIC, OR_PAY_DATE, USERNAME, TITLE, CONTENT, STAR, RE_DATE)
+         values (REVIEWS_SEQ.nextval, #{alNum}, #{alName}, #{alOpic}, #{orPayDate}, #{userName}, #{title}, #{content}, #{star}, SYSDATE)
+   </insert>
+      
+   <select id="ReviewListDAO" resultType="com.shop.dto.ReviewDTO">
+      select * from REVIEWS  ORDER BY RE_DATE DESC
+   </select>
+      
+   <select id="ReviewDetailDAO" resultType="com.shop.dto.ReviewDTO">
+      select * from REVIEWS where re_num=#{reNum} ORDER BY re_num DESC
+   </select>   
+   
+   
+   <select id="ReviewDlDAO" resultType="com.shop.dto.ReviewDTO">
+      
+      <![CDATA[
+         select * from (
+               select * from REVIEWS where AL_NUM=#{alNum} order by DBMS_RANDOM.RANDOM
+      )
+         where rownum <= 3
+      ]]>
+   </select>   
+   
+   <select id="MyReviewDAO" resultType="com.shop.dto.ReviewDTO">
+      
+      <![CDATA[
+      select * from REVIEWS where username= #{userName}
+      ]]>
+   </select>   
+   
+   <delete id="ReviewDeleteDAO">
+   
+   DELETE FROM REVIEWS WHERE RE_NUM= #{reNum}
+   </delete>
+   
+   
+</mapper>

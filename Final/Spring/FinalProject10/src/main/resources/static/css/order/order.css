@@ -1,0 +1,10 @@
+@charset "UTF-8";
+.order_tit{
+	overflow: hidden;
+    border-bottom: 1px solid #dbdbdb;
+}
+.order_zone_tit {
+    margin: 0 0 0 0;
+    padding: 0 0 10px 0;
+    font-size: 16px;
+}

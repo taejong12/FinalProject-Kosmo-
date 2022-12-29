@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>  <!-- xml 문서입니다 하는 내용 -->
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.shop.dao.FilterSearchDAO">
+
+	<!-- 게시물 목록(페이징) -->
+	<!-- 
+	<select id="getListPaging" resultType="com.shop.dto.FilterSearchDTO">		
+		<![CDATA[
+		select k.*, a.al_opic, a.al_name, a.al_abv, a.al_price, a.al_stock, f.*
+		from al_kinds k join (select /*+INDEX_DESC(alcohols alcohols_seq) */ rownum as rnum , AL.* from alcohols AL where rownum <= (#{pageNum} * #{amount}) order by al.al_num desc 
+							) a on k.ki_num=a.ki_num
+		               	join flavors f on a.al_num=f.al_num
+		               	
+		]]>
+		<![CDATA[
+		WHERE rnum > ((#{pageNum}-1) * #{amount})
+		]]>
+		<if test="keyword != null">
+                and a.al_name like '%'||#{keyword}||'%'
+		</if>
+	</select>
+	 -->
+	
+	
+	<select id="getTotal" resultType="int">
+		SELECT COUNT(*)
+		FROM al_kinds k join alcohols a on k.ki_num=a.ki_num
+		                join flavors f on a.al_num=f.al_num              
+		<!-- where       
+        <if test="chkArray != null">
+				a.ki_num IN
+				<foreach collection="chkArray" item="item" open="(" close=")" separator=",">
+					 #{item}
+				</foreach>
+			</if>
+			<if test="chkDanmat != null">
+				AND f.fl_danmat IN
+					<foreach collection="chkDanmat" item="item" open="(" close=")" separator=",">
+						 #{item}
+					</foreach>
+			</if>
+			<if test="chkFlSinmat != null">
+				AND f.fl_sinmat IN
+					<foreach collection="chkFlSinmat" item="item" open="(" close=")" separator=",">
+						 #{item}
+					</foreach>
+			</if>
+			<if test="chkFlSsunmat != null">
+				AND f.fl_ssunmat IN
+					<foreach collection="chkFlSsunmat" item="item" open="(" close=")" separator=",">
+						 #{item}
+					</foreach>
+			</if>
+			<if test="chkFlBody != null">
+				AND f.fl_body IN
+					<foreach collection="chkFlBody" item="item" open="(" close=")" separator=",">
+						 #{item}
+					</foreach>
+			</if>
+			<if test="chkFlTansan != null">
+				AND f.fl_tansan IN
+					<foreach collection="chkFlTansan" item="item" open="(" close=")" separator=",">
+						 #{item}
+					</foreach>
+			</if>
+			<if test="chkAlAbv == null and chkAlAbv1 != null">
+				AND a.al_abv between
+					0
+					and
+					<foreach collection="chkAlAbv1" item="item">
+						  #{item}
+					</foreach> 
+			</if>
+			<if test="chkAlAbv != null and chkAlAbv1 == null">
+				AND a.al_abv between
+					<foreach collection="chkAlAbv" item="item" >
+						  #{item}
+					</foreach> 
+					and
+					999
+			</if>	
+			<if test="chkAlAbv != null and chkAlAbv1 != null">
+				AND a.al_abv between
+					<foreach collection="chkAlAbv" item="item" >
+						  #{item}
+					</foreach> 
+					and
+					<foreach collection="chkAlAbv1" item="item">
+						  #{item}
+					</foreach> 
+			</if>
+			<if test="chkAlPrice == null and chkAlPrice1 != null ">
+				and a.al_price between 0 and
+				<foreach collection="chkAlPrice1" item="item">
+						 #{item}
+				</foreach> 
+			</if>
+			<if test="chkAlPrice != null and chkAlPrice1 == null">
+				and a.al_price between
+				<foreach collection="chkAlPrice" item="item">
+					#{item}
+				</foreach> 
+				and 10000000
+			</if>
+			<if test="chkAlPrice != null and chkAlPrice1 != null">
+				and a.al_price between
+				<foreach collection="chkAlPrice" item="item">
+					#{item}
+				</foreach>  
+				and
+				<foreach collection="chkAlPrice1" item="item">
+					#{item}
+				</foreach> 
+			</if>		 -->
+	
+	</select>
+	
+		<!-- <if test="keyword != null">
+            Oracle
+            where a.al_name like '%'||#{keyword}||'%'       
+        </if>       -->  
+	
+	
+	<select id="getAuthItemList" resultType="com.shop.dto.FilterSearchDTO">
+		<!-- select k.*, a.al_opic, a.al_name, a.al_abv, a.al_price, a.al_stock, f.*
+		from al_kinds k join (select /*+INDEX_DESC(alcohols alcohols_seq) */ rownum as rnum , AL.* from alcohols AL where rownum <= ((#{cri.pageNum}) * #{cri.amount}) order by al.al_num desc 
+							) a on k.ki_num=a.ki_num
+		               	join flavors f on a.al_num=f.al_num
+			where rnum > ((#{cri.pageNum}-1) * #{cri.amount})   -->
+			
+		<![CDATA[
+			SELECT *
+			FROM(
+				SELECT rownum as rnum, A.*
+				FROM(select  k.*, a.al_opic, a.al_name, a.al_abv, a.al_price, a.al_stock, f.*
+				     from al_kinds k join alcohols a on k.ki_num=a.ki_num
+				                     join flavors f on a.al_num=f.al_num
+				       
+		]]>                        
+              <where>          
+        <if test="chkArray != null">
+				a.ki_num IN
+				<foreach collection="chkArray" item="item" open="(" close=")" separator=",">
+					 #{item}
+				</foreach>
+			</if>
+			<if test="chkDanmat != null">
+				AND f.fl_danmat IN
+					<foreach collection="chkDanmat" item="item" open="(" close=")" separator=",">
+						 #{item}
+					</foreach>
+			</if>
+			<if test="chkFlSinmat != null">
+				AND f.fl_sinmat IN
+					<foreach collection="chkFlSinmat" item="item" open="(" close=")" separator=",">
+						 #{item}
+					</foreach>
+			</if>
+			<if test="chkFlSsunmat != null">
+				AND f.fl_ssunmat IN
+					<foreach collection="chkFlSsunmat" item="item" open="(" close=")" separator=",">
+						 #{item}
+					</foreach>
+			</if>
+			<if test="chkFlBody != null">
+				AND f.fl_body IN
+					<foreach collection="chkFlBody" item="item" open="(" close=")" separator=",">
+						 #{item}
+					</foreach>
+			</if>
+			<if test="chkFlTansan != null">
+				AND f.fl_tansan IN
+					<foreach collection="chkFlTansan" item="item" open="(" close=")" separator=",">
+						 #{item}
+					</foreach>
+			</if>
+			<if test="chkAlAbv == null and chkAlAbv1 != null">
+				AND a.al_abv between
+					0
+					and
+					<foreach collection="chkAlAbv1" item="item">
+						  #{item}
+					</foreach> 
+			</if>
+			<if test="chkAlAbv != null and chkAlAbv1 == null">
+				AND a.al_abv between
+					<foreach collection="chkAlAbv" item="item" >
+						  #{item}
+					</foreach> 
+					and
+					999
+			</if>	
+			<if test="chkAlAbv != null and chkAlAbv1 != null">
+				AND a.al_abv between
+					<foreach collection="chkAlAbv" item="item" >
+						  #{item}
+					</foreach> 
+					and
+					<foreach collection="chkAlAbv1" item="item">
+						  #{item}
+					</foreach> 
+			</if>
+			<if test="chkAlPrice == null and chkAlPrice1 != null ">
+				and a.al_price between 0 and
+				<foreach collection="chkAlPrice1" item="item">
+						 #{item}
+				</foreach> 
+			</if>
+			<if test="chkAlPrice != null and chkAlPrice1 == null">
+				and a.al_price between
+				<foreach collection="chkAlPrice" item="item">
+					#{item}
+				</foreach> 
+				and 10000000
+			</if>
+			<if test="chkAlPrice != null and chkAlPrice1 != null">
+				and a.al_price between
+				<foreach collection="chkAlPrice" item="item">
+					#{item}
+				</foreach>  
+				and
+				<foreach collection="chkAlPrice1" item="item">
+					#{item}
+				</foreach> 
+			</if>		
+			</where>
+
+			<![CDATA[
+				        
+				        order by a.al_num DESC) A
+				)
+				WHERE rnum between (((#{cri.pageNum}-1) * #{cri.amount})) and (((#{cri.pageNum}) * #{cri.amount}))
+			]]>       			
+		
+	</select>
+	
+
+</mapper>
+

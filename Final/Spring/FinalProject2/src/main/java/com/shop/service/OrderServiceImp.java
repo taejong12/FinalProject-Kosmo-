@@ -31,6 +31,12 @@ public class OrderServiceImp implements OrderService {
 	@Override
 	public int orderInsert(Map<String, String> map) {
 		return dao.orderInsertDao(map);
+	}
+
+	@Override
+	public OrderDTO orderPage(String username) {
+	
+		return dao.orderPage(username);
 	};
 	
 

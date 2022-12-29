@@ -13,4 +13,6 @@ public interface OrderService {
 	public List<OrderDTO> getOrderList(String username);
 	public int orderPage(Map<String,String> map);
 	public int orderInsert(Map<String, String> map);
+	public OrderDTO orderPage(String username);
+	
 }

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.shop.dao.SearchDAO">
+	<!-- criteria(검색조건) -->
+	<sql id="criteria">
+		    <if test="keyword != null">
+			    AL_NAME like '%' || #{keyword} || '%'
+			</if>
+	</sql>
+
+	
+	<!-- 상품 검색 -->
+	<select id="getStoreList" resultType="com.shop.dto.StoreDTO">
+	
+		<![CDATA[
+		    select * from(
+		        select rownum as rn, alcohols.*,
+		            (select KI_NAME from AL_KINDS where AL_KINDS.KI_NUM = ALCOHOLS.KI_NUM) KI_NAME,
+		            (select MA_NAME from MAKERS where MAKERS.MA_NUM = ALCOHOLS.MA_NUM) MA_NAME  
+		        from ALCOHOLS
+		        where 
+	    ]]>
+	    
+	    <include refid="criteria"></include>
+	    
+	    <![CDATA[
+	    		        
+
+	        	)
+
+		]]>	  		
+	
+	</select>
+	
+	<!-- 상품 총 개수 -->
+	<select id="StoreGetTotal" resultType="int">
+	
+		select count(*) from ALCOHOLS
+		where
+		<include refid="criteria"></include> 
+		
+	</select>
+	
+
+</mapper>

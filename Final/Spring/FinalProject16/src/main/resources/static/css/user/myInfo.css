@@ -1,0 +1,217 @@
+@charset "utf-8";
+.wrap {
+	width: 90%;
+	max-width: 1000px;
+	margin: 0 auto;
+	flex-wrap: wrap;
+}
+
+.login_box {	
+	margin: 0px auto;
+	text-align: center;
+}
+
+span{
+	font-weight: bolder;
+}
+
+.user_nickname{
+	font-weight: bolder;
+}
+ 
+.logo_img {
+	width: 15%;
+	margin-top: 3%;
+}
+
+.present_password{
+	margin: 3px auto;
+	width: 100%;
+	height: 40px;
+	padding: 0 2%;
+	border: 1px solid #ddd;
+	border-radius:0px;
+	box-sizing: border-box;
+}
+ 
+.new_password{
+	margin: 3px auto;
+	width: 100%;
+	height: 40px;
+	padding: 0 2%;
+	border: 1px solid #ddd;
+	border-radius:0px;
+	box-sizing: border-box;
+}
+
+.new_password_check{
+	margin: 3px auto;
+	width: 100%;
+	height: 40px;
+	padding: 0 2%;
+	border: 1px solid #ddd;
+	border-radius:0px;
+	box-sizing: border-box;
+}
+
+.pwd_modify{
+	background-color: black;
+	border-radius:0px;
+	width: 35%;
+	height: 45px;
+	color: #fff;
+	cursor: pointer;
+	font-size: 1.8rem;
+}
+
+section.title {
+	width: 100%;
+}
+ 
+section.title h1 {
+	text-align: center;
+	margin: 20px 0 20px 0;
+}
+ 
+/* main */
+main {
+	width: 85%;
+	margin: 40px auto;
+	border: 1px solid #ddd;
+	border-radius: 15px;
+	padding-bottom: 40px;
+	background-color: darkgray;
+	color: white;
+}
+
+ 
+.info_box {
+	margin: 0px auto;
+	width: 90%;
+}
+ 
+.info_box>div {
+	display: flex;
+	margin: 10px 0;
+}
+ 
+.info_box h2 {
+	text-align: center;
+	margin-top: 10px;
+}
+ 
+.info_box .input_box {
+	width: 80%;
+	text-align: right;
+	margin-right: 5px;
+}
+ 
+.info_box .input_box > div,
+.info_box .btn_box > div {
+	margin-top: 10px;
+}
+ 
+.info_box .user_nickname {
+	justify-content: center;
+	font-size: 1.2rem;
+}
+ 
+.info_box input {
+	padding: 10px;
+	font-size: 1.3rem;
+	width: 100%;
+	border: 1px solid #ddd;
+	box-sizing: border-box;
+	font-family: 'Hahmlet', serif;
+}
+ 
+.info_box input[type=password] {
+	width: 75%;
+}
+ 
+.info_box button {
+	font-size: 1.5rem;
+	color: #fff;
+	border: none;
+	border-radius: 10px;
+	width: 100%;
+	background-color: black;
+}
+ 
+.info_box .btn_box {
+	width: 18%;
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+}
+ 
+.auth_num_box {
+	display: none;	
+}
+ 
+.input_box .timer_box {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+    transform: translate(10%, 120%);
+}
+ 
+ 
+ 
+ 
+@media ( max-width :1024px) {
+	main {
+		width: 90%;
+	}
+	.info_box input[type=password] {
+		width: 70%;
+	}
+}
+ 
+@media ( max-width : 767px) {
+	.wrap {
+		width: 100%;
+	}
+	main {
+		width: 100%;
+	}
+	.info_box {
+		width: 95%;
+	}
+ 
+	.info_box input[type=password] {
+		width: 70%;
+	}
+}
+ 
+ 
+@media ( max-width : 600px) {
+	.info_box {
+		width: 100%;
+	    margin-left: 10px;
+	}
+	.info_box input[type=password] {
+		width: 60%;
+	}
+ 
+	.info_box .btn_box {
+		width: 20%;
+	} 
+	
+	.info_box .input_box {
+		width: 75%;
+	}
+	
+} 
+ 
+@media ( max-width : 480px) {
+ 
+	.info_box .btn_box {
+		width: 25%;
+	} 
+	
+	.info_box .input_box {
+		width: 70%;
+	}
+	
+}

@@ -6,6 +6,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+.pageInfo{
+      list-style : none;
+      display: inline-block;
+    margin: 50px 0 0 100px;      
+  }
+  .pageInfo li{
+      float: left;
+    font-size: 20px;
+    margin-left: 18px;
+    padding: 7px;
+    font-weight: 500;
+  }
+</style>
 </head>
 <body>
 <div>
@@ -32,7 +46,7 @@
 				<tr>
 					<td>${dto.alNum }</td>
 					<td><a href="alView?alNum=${dto.alNum}">${dto.alName }</a></td>
-					<td><img src="${dto.alOpic}"/></td>
+					<td><img src="${dto.alOpic}" referrerpolicy="no-referrer" /></td>
 					<td>${dto.kiName }</td>
 					<td>${dto.alPrice }</td>
 				</tr>
@@ -42,6 +56,7 @@
 			</tbody>
 		</table>
 	</div>
+	<%@ include file="/WEB-INF/view/include/paging.jsp" %>
 </div>
 </body>
 </html>

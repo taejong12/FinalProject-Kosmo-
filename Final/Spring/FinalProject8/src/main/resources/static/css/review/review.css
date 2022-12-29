@@ -1,0 +1,13 @@
+@charset "UTF-8";
+html{height: 100%;}
+
+body{
+	background: rgb(250, 238, 234);
+	position: relative;width: 100%;height: 100%;
+}
+
+.mainContents{
+	background: white;
+	border: 50px solid white;;
+	position: absolute;top: 10%;left: 34%;
+}

@@ -1,0 +1,49 @@
+body{
+   background-color: #fff;
+}
+#table{
+   background-color:WHITE;
+   border:#ddd;
+   border-top-color: 1px solid black;
+   width: 80%;
+   margin: 0px auto;
+}
+#top{
+   background-color: #c0c0c0;
+}
+.login_box {
+   text-align:center;
+}
+.logo_img {   
+   
+   width: 8%;
+}
+#strong{
+   display:block;
+   font-size: 30px;
+   text-align:center;
+   
+}
+#noticeCo{
+   text-align:center;
+   width: 65px;      
+}
+#noticeDay{
+   text-align:center;
+   width: 150px;   
+}
+#noticeMan{
+   text-align:center;
+   width: 150px;
+}
+#noticeNum{
+   text-align:center;
+   width: 70px;
+}
+#noticeTitle{   
+   text-align:center;
+}
+#noticeTitle a{
+	color: black;
+	text-decoration-line: none;
+}

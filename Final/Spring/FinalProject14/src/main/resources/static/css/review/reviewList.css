@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+
+
+body {
+	background-color: #f8f8f8;
+	margin: 1px 1px 1px 0px;
+
+}
+
+.board_zone_tit{
+	padding: 99px 338px 73px 300px;
+	text-align: center;
+}
+
+.rating_star {
+	border-left: 1px solid #dbdbdb;
+	color: #ffc800;
+}
+
+.recontents {
+	-webkit-font-smoothing: antialiased;
+	font-size: 12px;
+	line-height: 1.5;
+	font-family: 'Montserrat', Malgun Gothic, "맑은 고딕", AppleGothic, Dotum,
+		"돋움", sans-serif;
+	color: #333;
+	margin: 0px auto 0px;
+	padding: 0px 200px 0px 360px;
+	max-width: 100%;
+}
+
+.review_list_gallery {
+	position: relative;
+	width: 100%;
+}
+
+.review_list_gallery ul {
+	float: left;
+	font-size: 0;
+}
+
+<!--
+.review_list_gallery ul li {
+	position: relative;
+	min-height: 50px;
+	margin: 0 0 40px 0;
+	font-size: 12px;
+	text-align: center;
+}
+
+-->
+.review_list_gallery ul li {
+	position: relative;
+	min-height: 1px;
+	margin: -35px -5px 39px -23px;
+	font-size: 12px;
+	text-align: center;
+}
+
+.review_list_gallery .review_img {
+	overflow: hidden;
+	display: table;
+	position: relative;
+	width: 100%;
+	min-height: 200px;
+	text-align: center;
+	border: 1px solid #ebebeb;
+}
+
+ul {
+	display: block;
+	list-style-type: disc;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	padding-inline-start: 40px;
+}
+#footer_wrap {
+	clear: both;
+}

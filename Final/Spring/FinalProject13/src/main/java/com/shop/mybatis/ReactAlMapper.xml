@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.shop.dao.ReactAlDAO">
+  	<insert id="insertAlcohol" parameterType="com.shop.dto.AlDetailDTO">
+          INSERT INTO ALCOHOLS(AL_OPIC, AL_NAME, KI_NUM, AL_ABV, AL_VOLUME, AL_PRICE, AL_JAERYO, AL_STOCK, MA_NUM, AL_STATUS)
+          VALUES(#{alOpic}, #{alName}, #{kiNum}, #{alAbv}, #{alVolume}, #{alPrice}, #{alJaeryo}, #{alStock}, #{maNum}, #{alStatus})
+      </insert>
+  
+     <select id="alcoholList" resultType="com.shop.dto.AlDetailDTO">
+         SELECT * FROM ALCOHOLS
+         ORDER BY AL_NUM
+     </select>
+     
+     <select id="fetchAlcoholByAlNum" resultType="com.shop.dto.AlDetailDTO"
+      parameterType="int">
+         SELECT * FROM ALCOHOLS
+         WHERE AL_NUM = #{alNum}
+     </select>
+     
+     <delete id="deleteAlcohol" parameterType="int">
+         DELETE FROM ALCOHOLS
+         WHERE AL_NUM = #{alNum}
+     </delete>
+     
+     <update id="updateAlcohol" parameterType="com.shop.dto.AlDetailDTO">
+         UPDATE ALCOHOLS
+         SET AL_OPIC = #{alOpic}, AL_NAME = #{alName}, KI_NUM = #{kiNum}, AL_ABV = #{alAbv}, AL_VOLUME = #{alVolume}, AL_PRICE = #{alPrice}, AL_JAERYO = #{alJaeryo}, AL_STOCK = #{alStock}, MA_NUM = #{maNum}, AL_STATUS = #{alStatus} 
+         WHERE AL_NUM = #{alNum}
+     </update>
+  </mapper>

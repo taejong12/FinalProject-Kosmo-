@@ -1,0 +1,32 @@
+#listmain{
+margin-top: 5%;
+}
+#alOp {
+	margin-top: 5%;
+	width: 170px;
+	height: 230px;
+	border-radius: 30px;
+	background-color: white;
+	margin-right: 10%;
+}
+.tr1{
+	margin: 0 2%;
+	height: 7px;
+}
+
+#divnum{
+display: flex; 
+position: relative;
+}
+#alname{
+margin-left: 50%;
+    margin-top: -40%;
+}
+#alnamefont{
+font-size: 20px;
+}
+
+.al_subject{
+	font-size:40px;
+	text-align:center;
+}

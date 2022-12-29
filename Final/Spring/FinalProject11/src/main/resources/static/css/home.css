@@ -1,0 +1,149 @@
+@charset "UTF-8";
+body{background-color: rgb(250, 238, 234);}
+
+
+#contents{min-height:400px; margin:0px auto 0px; font-color:#000 ; padding:0px 0px 50px; width: 100% !important;  }
+#contents .sub_content { max-width: none; }	
+/* #WD_main {  margin:-76px auto 0px;  padding:100px 200px 50px 300px; max-width: 100%;  }*/
+
+#WD_main .main_title {margin:0 auto; padding: 20px 0 20px 0; text-align:center;font-size:0px; }
+#WD_main .main_title .t1 {font-size:28px;color:#000;line-height:1;letter-spacing:1px;font-weight:200; font-family:'Montserrat','Nanum Gothic';}
+#WD_main .main_title .t2 {font-size:12px;color:#888;line-height:1;letter-spacing:-0.2px;padding-top:10px;}	
+#WD_main .Keyword {width:100%;  margin:20px auto 100px;}
+#WD_main .Keyword ul {text-align:center; font-size:0px;}
+#WD_main .Keyword li { margin:0 5px 6px 5px; display:inline-block; }
+#WD_main .Keyword li a { display:block;font-size:14px; color:#555; line-height:45px; padding:0 20px;background-color:#fff;border:1px solid #dedede; border-radius:3px;-webkit-transition:0.3s ease-in-out;-moz-transition:0.3s ease-in-out;-o-transition:0.3s ease-in-out;transition:0.3s ease-in-out;}
+#WD_main .Keyword li:hover a {background-color:#222;border:1px solid #222; color:#fff;}
+#WD_main .Keyword li a:before {content:"#"; margin-right:3px;}
+
+
+
+	
+ul{
+   list-style:none;
+   padding-left:20px;
+   }
+
+.slick-slider {
+    overflow: hidden;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    box-sizing: border-box;
+    text-align: inherit;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0;
+}
+
+ #WD_main {    -webkit-font-smoothing: antialiased;
+    font-size: 12px;
+    line-height: 1.5;
+    font-family: 'Montserrat',Malgun Gothic,"맑은 고딕",AppleGothic,Dotum,"돋움",sans-serif;
+    color: #333;
+    margin: 0px auto 0px;
+    padding: 0px 200px 0px 300px;
+    max-width: 100%;}
+.goods_list_cont ul li {
+    display: inline-block;
+    position: relative;
+    min-height: 300px;
+    margin: 0px -7px 0 0;
+    text-align: center;
+    vertical-align: top;
+    font-size: 12px;
+}
+
+.item_photo_box a > img {
+    max-width: 100% /* wiz 이미지100%;; */;
+    -webkit-transition: all .25s ease;
+    -moz-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    -ms-transition: all .25s ease;
+    transition: all .25s ease;
+    box-sizing: border-box;
+}
+a, a img, img {
+    -webkit-transition: all 0.3s ease;
+    -khtml-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+fieldset, img {
+    border: 0 none;
+    vertical-align: top;
+}
+
+
+.alopicimg {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+    width: 250px;
+    height: 300px;
+}
+a {
+    color: #222;
+    text-decoration: none;
+    -webkit-transition: .2s ease-in-out;
+    transition: .2s ease-in-out;
+    -webkit-backface-visibility: hidden;
+}
+
+.btn_goods_down_more .btn_goods_view_down_more {
+    display: inline-block;
+    margin-top: -1px;
+    padding: 5px 28px 6px 20px;
+    font-weight: bold;
+    border: 1px solid #dbdbdb;
+    border-top: none 0;
+    background: url(../../img/icon/goods_icon/icon_down_more.png) no-repeat right center;
+
+}
+
+
+a:-webkit-any-link {
+   /* color: -webkit-link;*/
+    cursor: pointer;
+}
+.item_photo_box {
+    display: inline-block !important;
+    max-width: 100% /* wiz 이미지100% */;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-box-sizing: border-box;
+    -khtml-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.goods_list_cont ul {
+	display: inline-flex !important;
+	
+}
+
+.goods_list_cont{
+max-width: 1500px;
+max-height: auto;
+}
+
+.alnumlink:link{
+	color: black;
+}
+.alnumlink:visited{
+	color:black;
+}

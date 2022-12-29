@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+/* CSS Document */
+/**
+ * custom css 입니다. 추가적인 css 는 여기에 작성을 해주세요.
+ */
+
+
+
+	
+/* ------------- 상단 디자인 ------------- */
+body{
+	font-family: 'Hahmlet', serif;
+}
+.imglogo{
+	width: 120px;
+    margin-top: 0;
+    position: fixed;
+    top: 2%;
+    left: 5%;
+}
+header { width:100%; position:fixed;top:0;z-index:2; border:0px solid #000; font-family: 'Hahmlet', serif; }	
+#header { position:relative; width:100%; padding:20px 0;  background-color:rgba(250,238,234,0); border:0px solid #000}
+#header:hover {background-color:rgba(250,238,234,0); }
+#header.fixed { padding:0px 0; background-color:rgba(250,238,234,0); }
+#header .header_top { margin:0 auto;  max-width:1780px !important;  padding:0 73px;position:relative; height:50px; border:0px solid #000 }	
+
+.headerR { width:100%;height:100%; text-align:right important;  box-sizing:border-box; } 
+
+/* 로그인 */
+.headerR ul { float:right; position:relative; box-sizing:border-box; right: -30%;}
+.headerR ul li { position:relative; display:inline-block; vertical-align:middle; margin:0 10px; }
+.headerR ul li > a { display:block;   color:#333; letter-spacing:0.03em; line-height:50px; font-size:large; font-weight:500;  position: relative; text-transform: uppercase;}
+.headerR ul li:hover > a {color:#666;}
+.headerR ul li:last-child > a { margin-right:0;}
+.headerR ul li i {font-size:13px; cursor:pointer;  }
+.headerR ul li.wlogin { display:none !important;  }
+.headerR ul li.wlogin i {font-size:15px; cursor:pointer;  }
+
+/* 오른쪽중분류 */
+.headerR ul .sub-category { position:absolute; z-index:9;left:50%;  transform:translateX(-50%);  top:45px;height:0; visibility:hidden; opacity:0; -webkit-transition:all 0.3s;-moz-transition:all 0.3s;-ms-transition:all 0.3s;-o-transition:all 0.3s;transition:all 0.3s;}
+.headerR ul > li:hover .sub-category { top:49px;opacity:1; visibility:visible; }
+.headerR ul .sub-category > ul { background-color:rgba(25,25,25,0.8); padding: 5px 0px; width: 100px; border-radius:4px;}
+.headerR ul .sub-category > ul > li { display:block; margin: 0px; }
+.headerR ul .sub-category > ul > li > a { display: block;width:100%;color: #bdbdbd;line-height: 24px;font-size: 16px; text-align: center; font-weight:600; }
+.headerR ul .sub-category > ul > li:hover > a { color:#fff; background-color:rgba(0,0,0,0.5);}
+
+
+
+/* 오른쪽퀵버튼 */
+#fix_pagescroll {position:fixed;right:-50px;bottom:80px;z-index:99999;  -webkit-transition:all 1s;moz-transition:all 1s;-o-transition:all 1s;transition:all 1s;}
+#fix_pagescroll.active {right:30px;bottom:80px;}
+.updown > div {margin-top:5px;opacity:1;-webkit-transition: all 0.3s; -moz-transition: all 0.3s; -ms-transition: all 0.3s; -o-transition: all 0.3s;  transition: all 0.3s;}
+.updown > div:hover {opacity:0.8;}
+.updown div.r_icon { cursor:pointer; position:relative; width:38px;height:38px; line-height:38px; border:1px solid #ddd; border-radius:50%;-webkit-border-radius:50%; -moz-border-radius:50%; text-align:center; box-sizing:border-box;}
+.updown div.r_icon i {font-size:14px;color:#999;}
+.updown img { width:38px;height:38px; }
+
+
+	
+/* 전체메뉴 */
+#header nav { position:absolute;width:100%; top:120px;left:0;display:none;padding-bottom:10px; background-color:rgba(250,250,250,0.9);box-shadow:1px 1px 4px rgba(100,100,100,0.15);text-align:center;z-index:8;}
+#header.fixed nav { top:80px;  }
+
+#allMenu { display:block;width:100%; padding:35px 30px;overflow:hidden; border-top:0px solid #eee; }
+#allMenu .allinner {width:100%; max-width:1780px;margin:0 auto;padding:0 30px;position:relative;}
+#allMenu .cate1Box {display:flex;}
+#allMenu .cate1Box > * {flex:1;padding:0px;border-right:1px solid rgba(0,0,0,0.05);}
+#allMenu .cate1Box > *:last-child {border-right:0;}
+#allMenu .cate1Box .cate1 > a {display:block;width:100%;margin-bottom:4px;font-size:11px; letter-spacing:0.5px;  padding-top:1px;line-height:24px;font-weight:600;text-transform: uppercase; text-align:center;color:#555;-webkit-transition:all 0.3s;-moz-transition:all 0.3s;-ms-transition:all 0.3s;-o-transition:all 0.3s;transition:all 0.3s;}
+#allMenu .cate2Box .cate2  {position:relative;}
+#allMenu .cate2Box .cate2 > a {display:block;width:100%;font-size:10px;height:22px; letter-spacing:0.5px; line-height:22px;font-weight:400; text-align:center; text-transform: uppercase; }
+#allMenu .cate2Box .cate2 > a:hover{color:#ccc;  text-decoration: underline; }

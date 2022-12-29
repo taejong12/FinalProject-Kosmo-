@@ -4,13 +4,22 @@ body {
 
 
 .wrap {
-    width: 95%;
+	height: auto;
+	min-height: 100%;
+ 	padding-bottom: 80px;
     margin: 0 auto;
+    position: relative;
 }
 
 main {
    background: #fff; 
    padding-bottom: 50px;
+}
+
+.section_Carousel {
+	margin: auto;
+	padding: 30px;
+	
 }
 
 

@@ -1,0 +1,36 @@
+#listmain{
+margin-top: 5%;
+}
+#alOp {
+	margin-top: 5%;
+	width: 200px;
+	height: 300px;
+	object-fit: contain;
+	border-radius: 30px;
+	background-color: white;
+	margin-right: 10%;
+}
+.tr1{
+	margin: 0 2%;
+	height: 7px;
+}
+
+#divnum{
+display: flex; 
+position: relative;
+}
+#alname{
+margin-left: 50%;
+    margin-top: -40%;
+}
+#alnamefont{
+font-size: 20px;
+}
+
+.al_subject{
+	font-size:40px;
+	text-align:center; 
+	margin-bottom: 30%;
+	padding-top:10px;
+	padding-left:45%;
+}

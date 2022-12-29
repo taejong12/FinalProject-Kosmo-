@@ -1,0 +1,58 @@
+@charset "utf-8";
+/* outline/footer/css/design02.css */
+
+/* ------------- 하단 디자인 ------------- */
+/* 컨텐츠 하단 */
+.content_info_wrap{border-bottom:1px solid #ebebeb; height: auto; }
+.content_info{overflow:hidden; padding:50px 0 40px 0;     margin-left: 21%;}
+.content_info h3{padding:0 0 10px 0;color:#000;font-weight:bold; font-size:11px;letter-spacing:1.5px;margin-bottom:10px;position:relative;}
+.content_info h3 span{float:right;font-size:11px;}
+/*.content_info h3:after{position: absolute;content: "";bottom: 0;left: 0;width: 18px;height: 1px;background: #000000;}*/
+
+/* cs center */
+.content_info .cs_center{float:left; width:240px;}
+.content_info .cs_center strong{display:block; padding:0 0 7px 0; color:#000; font-size:19px;font-weight:bold;letter-spacing:-.5px;}
+.content_info .cs_center p{color:#888;letter-spacing:.5px;line-height:18px;font-size:11px;}
+
+/* bank info */
+.content_info .bank_info{float:left; width:200px;padding:0 4%;margin:0 4% 0 0;border-left:1px solid #ebebeb;border-right:1px solid #ebebeb;}
+.content_info .bank_info p{font-size:11.5px;color:#000;line-height:17px;}
+.content_info .bank_info strong{display:inline-block; padding:0 0 0px 5px; color:#888; font-size:11.5px;font-weight:normal;}
+.content_info .bank_info em{font-weight:normal;color:#888;}
+
+/* notice */
+.content_info .notice_list{float:left; width:595px;}
+.content_info .notice_list h3 > a{color:#222222;overflow: visible;}
+.content_info .notice_list h3 > a:hover{text-decoration:none;}
+.content_info .notice_list ul{padding:0 0 0 0;}
+.content_info .notice_list li{padding:2px 0 1px 0;letter-spacing:-.5px;}
+.content_info .notice_list a{display:inline-block; width:95%; color:#717171; text-overflow:ellipsis; white-space:nowrap; word-wrap:break-word;}
+.content_info .notice_list a:hover{text-decoration:underline;}
+.content_info .notice_list span{display:inline-block;}
+
+/* 풋터 */
+#footer_wrap{position:relative; border-top:2px solid #000;}
+#footer{overflow:hidden; padding:0 0 40px 0;}
+
+/* 풋터 메뉴 */
+.foot_list{border-bottom:1px solid #ebebeb; line-height:1;}
+.foot_list ul{overflow:hidden; width:1200px; margin:0 auto;}
+.foot_list ul li{float:left; padding:19px 0;}
+
+.foot_list ul li .txt_bar {display: inline-block;width: 1px; height: 10px;margin: 0 0 0 10px;background: #dedede;vertical-align: -1px;}
+.foot_list ul li a{padding:0px 0 0px 10px; color:#333;font-size:11px;letter-spacing:1px;}
+.foot_list ul li a:hover{text-decoration:underline;}
+.foot_list ul li:first-child a{padding-left:0; border-left:0 none;}
+/* 회사 정보 */
+
+
+.foot_cont{display:inline-block;width:auto;color: #555;font-size: 11.5px;line-height:23px;letter-spacing:-.3px;}
+.foot_cont .foot_logo{display:inline-block; float:right; width:200px; padding:0px 0 0 0;}
+.foot_cont .foot_info{display:inline-block; float:left;}
+.foot_cont .foot_info_list{overflow:hidden; width:100%;}
+.foot_cont .foot_info_list dl{float:left;}
+.foot_cont .foot_info_list dt{float:left;}
+.foot_cont .foot_info_list dd{float:left; padding:0 15px 0 3px;}
+.foot_cont .foot_info_list dd p.cus_copyright{color:#888;font-size:11px;display:inline-block;padding-left:5px;}
+.foot_cont .copyright{float:left; width:100%;}
+

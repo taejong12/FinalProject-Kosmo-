@@ -1,0 +1,99 @@
+main {
+	width: 70%;
+    margin: 40px auto;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding-bottom: 40px;
+    background-color: darkgray;
+    margin-top: 2%;
+    font-family: 'Hahmlet', serif;
+}
+
+.login_box {
+	margin: 0px auto;
+	text-align: center;
+}
+
+.logo_img {
+	width: 20%;
+	margin-top: 1%;
+}
+
+.email{
+	margin: 3px auto;
+	width: 25%;
+	height: 40px;
+	padding: 0 2%;
+	border: 1px solid #ddd;
+	border-radius:0px;
+	box-sizing: border-box;
+}
+
+.phone{
+	margin: 3px auto;
+	width: 25%;
+	height: 40px;
+	padding: 0 2%;
+	border: 1px solid #ddd;
+	border-radius:0px;
+	box-sizing: border-box;
+}
+
+.auth_num{
+	margin: 3px auto;
+	width: 36.5%;
+	height: 40px;
+	padding: 0 2%;
+	border: 1px solid #ddd;
+	border-radius:0px;
+	box-sizing: border-box;
+}
+.auth_num1{
+	margin: 3px auto;
+	width: 36.5%;
+	height: 40px;
+	padding: 0 2%;
+	border: 1px solid #ddd;
+	border-radius:0px;
+	box-sizing: border-box;
+}
+
+
+.auth_num_send_eemail{
+	margin: 3px auto;
+	width: 11%;
+	height: 40px;
+	padding: 0 2%;
+	border: 1px solid #ddd;
+	border-radius:0px;
+	box-sizing: border-box;
+	background-color: black;
+    color: white;
+    font-family: 'Hahmlet', serif;
+}
+
+.auth_num_send_phone{
+	margin: 3px auto;
+	width: 11%;
+	height: 40px;
+	padding: 0 2%;
+	border: 1px solid #ddd;
+	border-radius:0px;
+	box-sizing: border-box;
+	background-color: black;
+    color: white;
+    font-family: 'Hahmlet', serif;
+}
+
+.move_modify{
+	margin: 3px auto;
+	width: 36.5%;
+	height: 40px;
+	padding: 0 2%;
+	border: 1px solid #ddd;
+	border-radius:0px;
+	box-sizing: border-box;
+	background-color: black;
+    color: white;
+    font-family: 'Hahmlet', serif;
+}

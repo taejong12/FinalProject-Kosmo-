@@ -1,0 +1,26 @@
+#alOp {
+	width: 120px;
+	height: 180px;
+	border-radius: 30px;
+	background-color: white;
+}
+.searchlist{
+margin-left: 10%; 
+margin-right: 10%;
+}
+#searchdiv{
+display: table-cell; 
+position: relative; 
+vertical-align: top;
+}
+#searchdetail{
+margin-left:150px; 
+display: inline-block;
+}
+#searchname{
+font-size: 20px;
+}
+#searchja{
+font-size: 14px;
+width: 800px;
+}

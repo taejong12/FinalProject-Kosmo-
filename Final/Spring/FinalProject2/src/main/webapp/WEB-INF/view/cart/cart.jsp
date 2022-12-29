@@ -131,9 +131,17 @@
 				</div>
 			</div>
 			<!-- 구매 버튼 영역 -->
-			<div class="content_btn_section">
-				<a>주문하기</a>
-			</div>
+			<c:if test="${not empty cartInfo }">
+			<form action="/orderForm" method="post">
+				<input type="hidden" name="orTotalAmount" value="" />
+				<input type="hidden" name="orTotalPrice" value="" />
+				<input type="hidden" name="alNum" value="" />
+				<input type="hidden" name="alOpic" value="" />
+				<input type="hidden" name="alName" value="" />
+				<input type="hidden" name="userName" value="${SPRING_SECURITY_CONTEXT.authentication.principal.user.username }" />
+				<input type="submit" value="주문하기" />
+			</form>
+			</c:if>
 			
 			<!-- 수량 조정 form -->
 			<form action="/cart/update" method="post" class="quantity_update_form">
